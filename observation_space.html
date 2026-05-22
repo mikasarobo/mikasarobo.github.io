@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Observation and Action Space &#8212; MIKASA-Robo-VLA Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d539d744" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=1ed818bb"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'observation_space';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/copy-code-buttons.js?v=a0e0a20e"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Datasets" href="datasets.html" />
+    <link rel="prev" title="Evaluation Protocol" href="evaluation_protocol.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MIKASA-Robo-VLA Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Observation and Action Space</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="observation-and-action-space">
+<h1>Observation and Action Space<a class="headerlink" href="#observation-and-action-space" title="Link to this heading">#</a></h1>
+<p>MIKASA-Robo-VLA exposes two observation modes that can be selected when
+constructing any environment.  The same action and reward interface applies
+regardless of which mode you choose.</p>
+<section id="observation-modes">
+<h2>Observation Modes<a class="headerlink" href="#observation-modes" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">obs_mode=&quot;state&quot;</span></code></dt><dd><p>Privileged simulator state — an efficient flat tensor that contains the
+full physical state of the scene.  Use it for PPO oracle training, fast
+debugging, and reward sanity checks.  In this mode the raw ManiSkill
+observation is a single <code class="docutils literal notranslate"><span class="pre">state</span></code> tensor and there are <strong>no camera images</strong>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">obs_mode=&quot;rgb&quot;</span></code></dt><dd><p>RGB image observations from two cameras (top-down and wrist-mounted), plus
+proprioception.  This is the standard mode for VLA training and evaluation.
+In this mode the raw ManiSkill observation contains <code class="docutils literal notranslate"><span class="pre">sensor_data</span></code> (per
+camera RGB) and <code class="docutils literal notranslate"><span class="pre">agent</span></code> / <code class="docutils literal notranslate"><span class="pre">extra</span></code> joint state — no flat <code class="docutils literal notranslate"><span class="pre">state</span></code>
+tensor.</p>
+</dd>
+</dl>
+<p>The two modes are mutually exclusive: pick one when calling <code class="docutils literal notranslate"><span class="pre">gym.make</span></code>.</p>
+</section>
+<section id="raw-vs-wrapped-observations">
+<h2>Raw vs Wrapped Observations<a class="headerlink" href="#raw-vs-wrapped-observations" title="Link to this heading">#</a></h2>
+<p>The shapes you actually feed to a VLA model depend on which wrappers are
+applied.  The canonical chain (used by
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>
+and by every published dataset collector) is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gym.make(obs_mode=&quot;rgb&quot;, control_mode=&quot;pd_ee_delta_pose&quot;)
+  └─ StateOnlyTensorToDictWrapper          # adds task_cue + oracle_info
+      └─ &lt;task-specific info / overlay wrappers&gt;
+          └─ FlattenRGBDObservationWrapper(rgb=True, joints=True)
+               # collapses sensor_data → obs[&quot;rgb&quot;] (concat 2 cams)
+               # exposes obs[&quot;joints&quot;] from agent state
+              └─ ConvertJointsToEEFXyzRpyGripperWrapper
+                   # rewrites obs[&quot;joints&quot;] → obs[&quot;proprio&quot;]  (7D EEF)
+</pre></div>
+</div>
+<p>After the canonical chain the observation is a flat Python dict.  These are
+the keys VLA training and evaluation code should consume (<code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">=</span> <span class="pre">num_envs</span></code>):</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">Canonical wrapped observation (<code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers</span></code>)</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 22.0%" />
+<col style="width: 56.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Shape / dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obs[&quot;rgb&quot;]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">128,</span> <span class="pre">128,</span> <span class="pre">6)</span></code>  uint8</p></td>
+<td><p>Top-down and wrist cameras concatenated along the channel axis.
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;rgb&quot;][...,</span> <span class="pre">:3]</span></code> is <code class="docutils literal notranslate"><span class="pre">base_camera</span></code> (top-down);
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;rgb&quot;][...,</span> <span class="pre">3:6]</span></code> is <code class="docutils literal notranslate"><span class="pre">hand_camera</span></code> (wrist).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">7)</span></code>  float32</p></td>
+<td><p>Absolute end-effector pose + gripper opening — see the next section.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obs[&quot;task_cue&quot;]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">P)</span></code>  float32</p></td>
+<td><p><strong>RL-only.</strong>  Numeric target-angle cue exposed exclusively by the
+<em>Rotate*</em> family (PPO oracles need it because the angle is not
+inferable from a single RGB frame).  The canonical VLA helper
+<em>drops</em> the key for all other tasks; for <em>Rotate*</em> tasks VLA
+policies may ignore it because the same information is already in
+<code class="docutils literal notranslate"><span class="pre">info[&quot;language_instruction&quot;]</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you skip the canonical chain and use only
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper" title="mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">StateOnlyTensorToDictWrapper</span></code></a>,
+the raw ManiSkill keys <code class="docutils literal notranslate"><span class="pre">sensor_data</span></code> (per camera) and <code class="docutils literal notranslate"><span class="pre">agent</span></code> /
+<code class="docutils literal notranslate"><span class="pre">extra</span></code> are preserved instead of the flattened <code class="docutils literal notranslate"><span class="pre">obs[&quot;rgb&quot;]</span></code> /
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code>.  In that case the per-camera RGB is reachable at
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;sensor_data&quot;][&quot;base_camera&quot;][&quot;rgb&quot;]</span></code> and
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;sensor_data&quot;][&quot;hand_camera&quot;][&quot;rgb&quot;]</span></code>, each <code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">128,</span> <span class="pre">128,</span> <span class="pre">3)</span></code>
+uint8.  All published datasets and the benchmark runner expect the
+<em>canonical</em> layout above — prefer it for any VLA pipeline.</p>
+</div>
+<p>The sentinel value <code class="docutils literal notranslate"><span class="pre">4242424242</span></code> is documented in its own section below.</p>
+</section>
+<section id="canonical-vla-proprioception-and-action">
+<h2>Canonical VLA Proprioception and Action<a class="headerlink" href="#canonical-vla-proprioception-and-action" title="Link to this heading">#</a></h2>
+<p>The online wrapped environment and the published VLA datasets use the same
+7D proprioception and action format. After
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>,
+use <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code> as the VLA proprioception input. It is <strong>not</strong> a vector
+of arm joint angles and it is <strong>not</strong> an action delta. For one environment the
+semantic layout is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;proprio&quot;</span><span class="p">]</span> <span class="o">=</span>
+<span class="p">[</span>
+    <span class="n">eef_x</span><span class="p">,</span>
+    <span class="n">eef_y</span><span class="p">,</span>
+    <span class="n">eef_z</span><span class="p">,</span>
+    <span class="n">eef_roll</span><span class="p">,</span>
+    <span class="n">eef_pitch</span><span class="p">,</span>
+    <span class="n">eef_yaw</span><span class="p">,</span>
+    <span class="n">gripper_opening</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The batched online tensor has shape <code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">7)</span></code> and dtype <code class="docutils literal notranslate"><span class="pre">float32</span></code>; the
+dataset signal has shape <code class="docutils literal notranslate"><span class="pre">[T,</span> <span class="pre">7]</span></code> and dtype <code class="docutils literal notranslate"><span class="pre">float32</span></code>. The values are
+constructed from the absolute Panda TCP pose and finger qpos values by
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper" title="mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConvertJointsToEEFXyzRpyGripperWrapper</span></code></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id2">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code> fields</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 30.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fields</p></th>
+<th class="head"><p>Range / units</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[0:3]</span></code></p></td>
+<td><p>Absolute xyz in metres; not normalized; no finite wrapper clamp.</p></td>
+<td><p>Absolute end-effector TCP position in the ManiSkill scene frame.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[3]</span></code> and <code class="docutils literal notranslate"><span class="pre">[5]</span></code></p></td>
+<td><p>Radians, <code class="docutils literal notranslate"><span class="pre">[-pi,</span> <span class="pre">pi]</span></code> from quaternion-to-Euler conversion.</p></td>
+<td><p>Absolute TCP roll and yaw.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[4]</span></code></p></td>
+<td><p>Radians, <code class="docutils literal notranslate"><span class="pre">[-pi/2,</span> <span class="pre">pi/2]</span></code> from quaternion-to-Euler conversion.</p></td>
+<td><p>Absolute TCP pitch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[6]</span></code></p></td>
+<td><p>Metres, Panda physical range <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">0.08]</span></code> after summing the two
+finger qpos values; not normalized.</p></td>
+<td><p>Current gripper opening. <code class="docutils literal notranslate"><span class="pre">0</span></code> is closed and about <code class="docutils literal notranslate"><span class="pre">0.08</span></code> is open.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The action sent to <code class="docutils literal notranslate"><span class="pre">env.step(action)</span></code> is also 7D, but it has different
+semantics. For one environment it is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">action</span> <span class="o">=</span>
+<span class="p">[</span>
+    <span class="n">delta_eef_x</span><span class="p">,</span>
+    <span class="n">delta_eef_y</span><span class="p">,</span>
+    <span class="n">delta_eef_z</span><span class="p">,</span>
+    <span class="n">delta_eef_roll</span><span class="p">,</span>
+    <span class="n">delta_eef_pitch</span><span class="p">,</span>
+    <span class="n">delta_eef_yaw</span><span class="p">,</span>
+    <span class="n">gripper_command</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Use dtype <code class="docutils literal notranslate"><span class="pre">float32</span></code>. A single action has shape <code class="docutils literal notranslate"><span class="pre">(7,)</span></code> and a batched action
+has shape <code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">7)</span></code>. The action values stored in VLA datasets are in this
+normalized <code class="docutils literal notranslate"><span class="pre">pd_ee_delta_pose</span></code> environment action space.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id3">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">action</span></code> fields for the Panda <code class="docutils literal notranslate"><span class="pre">pd_ee_delta_pose</span></code> controller</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 30.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fields</p></th>
+<th class="head"><p>User-facing range</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[0:3]</span></code></p></td>
+<td><p>Each value in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. Panda maps this normalized range to
+xyz deltas in <code class="docutils literal notranslate"><span class="pre">[-0.1,</span> <span class="pre">0.1]</span></code> metres per control action.</p></td>
+<td><p>Relative end-effector translation command, not an absolute xyz pose.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[3:6]</span></code></p></td>
+<td><p>Each value is supplied in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. The Panda EEF-pose controller
+clips the rotation vector norm and applies its <code class="docutils literal notranslate"><span class="pre">0.1</span></code> radian rotation
+limit per control action.</p></td>
+<td><p>Relative end-effector orientation command, not an absolute rpy pose.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[6]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>. Panda maps <code class="docutils literal notranslate"><span class="pre">-1</span></code> toward the closed gripper target and
+<code class="docutils literal notranslate"><span class="pre">+1</span></code> toward the open gripper target.</p></td>
+<td><p>Normalized gripper <strong>position command</strong>. It is not
+<code class="docutils literal notranslate"><span class="pre">delta_gripper_opening</span></code> and is not the same quantity as
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;][...,</span> <span class="pre">6]</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Panda gripper has two symmetric fingers.  Each finger’s qpos range is
+<code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">0.04]</span></code> m, so <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;][...,</span> <span class="pre">6]</span></code> (the sum of both) is in
+<code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">0.08]</span></code> m.  The gripper controller target is sent per-finger in
+<code class="docutils literal notranslate"><span class="pre">[-0.01,</span> <span class="pre">0.04]</span></code> m; the slightly negative lower bound helps apply closing
+force against a grasped object.  This internal controller detail does not
+affect the normalised action interface — <code class="docutils literal notranslate"><span class="pre">action[6]</span></code> is always in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>.</p>
+</section>
+<section id="dataset-signals">
+<h2>Dataset Signals<a class="headerlink" href="#dataset-signals" title="Link to this heading">#</a></h2>
+<p>In published NPZ, RLDS, and LeRobot VLA datasets, each timestep stores the
+same signal semantics:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 20.0%" />
+<col style="width: 56.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal</p></th>
+<th class="head"><p>Shape/dtype</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rgb</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[T,</span> <span class="pre">128,</span> <span class="pre">128,</span> <span class="pre">6]</span></code> uint8</p></td>
+<td><p>Top and wrist RGB images <strong>pre-concatenated</strong> on the channel axis
+(<code class="docutils literal notranslate"><span class="pre">[...,</span> <span class="pre">:3]</span></code> = <code class="docutils literal notranslate"><span class="pre">base_camera</span></code>, <code class="docutils literal notranslate"><span class="pre">[...,</span> <span class="pre">3:6]</span></code> = <code class="docutils literal notranslate"><span class="pre">hand_camera</span></code>);
+this matches the online wrapped <code class="docutils literal notranslate"><span class="pre">obs[&quot;rgb&quot;]</span></code> byte-for-byte, so a
+model trained on the dataset can be evaluated without any reshape.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proprio</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[T,</span> <span class="pre">7]</span></code> float32</p></td>
+<td><p>Same absolute vector as online <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">action</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[T,</span> <span class="pre">7]</span></code> float32</p></td>
+<td><p>Same normalized <code class="docutils literal notranslate"><span class="pre">pd_ee_delta_pose</span></code> action vector accepted by
+<code class="docutils literal notranslate"><span class="pre">env.step(action)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">language_instruction</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Natural-language task instruction.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reward</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[T]</span></code> float32</p></td>
+<td><p>Per-step reward in the chosen reward mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[T]</span></code> bool</p></td>
+<td><p>Whether the episode success condition was met at this step.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Always pass <code class="docutils literal notranslate"><span class="pre">control_mode=&quot;pd_ee_delta_pose&quot;</span></code> when constructing
+environments for dataset collection or VLA evaluation.</p>
+</section>
+<section id="reward-modes">
+<h2>Reward Modes<a class="headerlink" href="#reward-modes" title="Link to this heading">#</a></h2>
+<p>Pass <code class="docutils literal notranslate"><span class="pre">reward_mode</span></code> to <code class="docutils literal notranslate"><span class="pre">gym.make</span></code> (or the PPO script) to select the
+reward signal:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sparse</span></code></p></td>
+<td><p>Binary reward: 1.0 on task success, 0.0 otherwise.
+Standard for imitation learning; not used during PPO training.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dense</span></code></p></td>
+<td><p>Shaped reward summing task-specific sub-goal bonuses.
+Values vary per environment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">normalized_dense</span></code></p></td>
+<td><p>Dense reward normalised to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> per environment.
+Recommended for PPO training as it keeps learning rates
+comparable across environments.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sentinel-values">
+<h2>Sentinel Values<a class="headerlink" href="#sentinel-values" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">StateOnlyTensorToDictWrapper</span></code> uses the sentinel value <strong>4242424242</strong> for
+<code class="docutils literal notranslate"><span class="pre">task_cue</span></code> and <code class="docutils literal notranslate"><span class="pre">oracle_info</span></code> when the underlying environment does not
+expose them.  Later wrappers in the canonical chain then drop the keys
+that are not meaningful for VLA policies:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">oracle_info</span></code> is removed for every task — it is privileged and never
+visible to a VLA policy in canonical evaluation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_cue</span></code> is kept <strong>only for the Rotate* tasks</strong> (the rotation
+angle in degrees), since PPO oracles trained from RGB cannot recover
+the target angle from images alone.  For all other tasks the key is
+dropped after the canonical chain.</p></li>
+</ul>
+<p>Check the final wrapped observation by key presence — VLA pipelines that
+want strictly <em>images + proprioception</em> can simply not read it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">task_cue</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;task_cue&quot;</span><span class="p">)</span>   <span class="c1"># None for non-Rotate tasks</span>
+<span class="c1"># VLA policies may ignore task_cue: the same information is already</span>
+<span class="c1"># encoded in info[&quot;language_instruction&quot;].</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="evaluation_protocol.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Evaluation Protocol</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="datasets.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Datasets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-modes">Observation Modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-vs-wrapped-observations">Raw vs Wrapped Observations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canonical-vla-proprioception-and-action">Canonical VLA Proprioception and Action</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-signals">Dataset Signals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reward-modes">Reward Modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentinel-values">Sentinel Values</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/observation_space.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Egor Cherepanov, Nikita Kachaev, Alexey K. Kovalev, Aleksandr I. Panov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

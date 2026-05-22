@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Wrappers Cookbook &#8212; MIKASA-Robo-VLA Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d539d744" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=1ed818bb"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'wrappers_cookbook';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/copy-code-buttons.js?v=a0e0a20e"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wrappers API" href="api/wrappers.html" />
+    <link rel="prev" title="Datasets" href="datasets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MIKASA-Robo-VLA Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Wrappers Cookbook</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="wrappers-cookbook">
+<h1>Wrappers Cookbook<a class="headerlink" href="#wrappers-cookbook" title="Link to this heading">#</a></h1>
+<p>MIKASA-Robo-VLA ships 19 Gymnasium wrappers in
+<code class="docutils literal notranslate"><span class="pre">mikasa_robo_suite/vla/utils/wrappers.py</span></code> plus a one-call helper
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>
+that picks the correct per-task chain automatically. This page groups the
+individual wrappers by purpose and shows when and how to compose them
+manually if you ever need to.</p>
+<p>For the full API reference, see <a class="reference internal" href="api/wrappers.html"><span class="doc">Wrappers API</span></a>.</p>
+<nav class="contents local" id="on-this-page">
+<p class="topic-title">On this page</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-default-apply-mikasa-vla-wrappers" id="id1">The Default: <code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers</span></code></a></p></li>
+<li><p><a class="reference internal" href="#composition-order-manual" id="id2">Composition Order (manual)</a></p></li>
+<li><p><a class="reference internal" href="#core-wrappers" id="id3">Core Wrappers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#stateonlytensortodictwrapper" id="id4">StateOnlyTensorToDictWrapper</a></p></li>
+<li><p><a class="reference internal" href="#convertjointstoeefxyzrpygripperwrapper" id="id5">ConvertJointsToEEFXyzRpyGripperWrapper</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#action-shaping-wrappers" id="id6">Action-Shaping Wrappers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#initialzeroactionwrapper" id="id7">InitialZeroActionWrapper</a></p></li>
+<li><p><a class="reference internal" href="#curriculumphasenoopactionwrapper" id="id8">CurriculumPhaseNoopActionWrapper</a></p></li>
+<li><p><a class="reference internal" href="#curriculumphasenoopactionwrapperpdjointpos" id="id9">CurriculumPhaseNoopActionWrapperPdJointPos</a></p></li>
+<li><p><a class="reference internal" href="#camerashutdownwrapper" id="id10">CameraShutdownWrapper</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#render-debug-wrappers" id="id11">Render / Debug Wrappers</a></p></li>
+<li><p><a class="reference internal" href="#task-specific-info-wrappers" id="id12">Task-Specific Info Wrappers</a></p></li>
+<li><p><a class="reference internal" href="#minimal-stacks-for-common-scenarios" id="id13">Minimal Stacks for Common Scenarios</a></p></li>
+</ul>
+</nav>
+<section id="the-default-apply-mikasa-vla-wrappers">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">The Default: <code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers</span></code></a><a class="headerlink" href="#the-default-apply-mikasa-vla-wrappers" title="Link to this heading">#</a></h2>
+<p>For <strong>any of the 90 MIKASA-Robo-VLA tasks</strong>, the canonical wrapper stack —
+state→dict, curriculum noop (where needed), task-specific overlays,
+RGB-flatten, and EEF proprioception — is applied by a single function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gymnasium</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gym</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.memory_envs</span>  <span class="c1"># registers VLA env IDs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.utils.apply_wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_mikasa_vla_wrappers</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span>
+    <span class="s2">&quot;RememberColor3-VLA-v0&quot;</span><span class="p">,</span>
+    <span class="n">num_envs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">obs_mode</span><span class="o">=</span><span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+    <span class="n">control_mode</span><span class="o">=</span><span class="s2">&quot;pd_ee_delta_pose&quot;</span><span class="p">,</span>
+    <span class="n">render_mode</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">apply_mikasa_vla_wrappers</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>  <span class="c1"># default for every task</span>
+</pre></div>
+</div>
+<p>The helper is the recommended entry point. It guarantees:</p>
+<ul class="simple">
+<li><p>the same core obs format (<code class="docutils literal notranslate"><span class="pre">obs[&quot;rgb&quot;]</span></code> and <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code>) that
+the published datasets use, plus <code class="docutils literal notranslate"><span class="pre">obs[&quot;task_cue&quot;]</span></code> <em>only for the
+Rotate* family</em> (the angle cue used by RL oracles; VLA policies should
+ignore it because the same value is already in
+<code class="docutils literal notranslate"><span class="pre">info[&quot;language_instruction&quot;]</span></code>);</p></li>
+<li><p>the correct cue-phase noop wrapper for VLA tasks that need one
+(<code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapper</span></code> in the canonical
+<code class="docutils literal notranslate"><span class="pre">pd_ee_delta_pose</span></code> action space);</p></li>
+<li><p>task-specific render overlays during <code class="docutils literal notranslate"><span class="pre">env.render()</span></code> for human-watchable
+videos.</p></li>
+</ul>
+<p>For headless metric-only evaluations pass <code class="docutils literal notranslate"><span class="pre">include_overlays=False</span></code> —
+only the four functional wrappers are kept, no text on rendered frames,
+but observations and reward are byte-identical to the default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">apply_mikasa_vla_wrappers</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">include_overlays</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers()</span></code></a>
+for the full per-env mapping.</p>
+</section>
+<section id="composition-order-manual">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Composition Order (manual)</a><a class="headerlink" href="#composition-order-manual" title="Link to this heading">#</a></h2>
+<p>You only need this section if you are intentionally composing wrappers by
+hand — for example, to reproduce the dataset collector or to experiment
+with a non-standard chain. Otherwise use <code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers</span></code>.</p>
+<p>Always apply wrappers in this order:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gym.make(...)
+  └─ StateOnlyTensorToDictWrapper          ← must be first
+      └─ CurriculumPhaseNoopActionWrapper   (cue-phase VLA tasks)
+          └─ &lt;task-specific info wrappers&gt;  (overlays)
+              └─ &lt;render / debug wrappers&gt;  (overlays, dev only)
+                  └─ FlattenRGBDObservationWrapper(rgb=True, joints=True)
+                      └─ ConvertJointsToEEFXyzRpyGripperWrapper
+                          └─ RecordEpisode  (outermost)
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">env_info</span></code> helper inside the PPO collector returns the same
+task-specific overlay chain that <code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers</span></code> builds
+internally, so you can inspect or replicate it manually:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># env_info lives in the PPO collector module; the dataset_collectors</span>
+<span class="c1"># package is included with mikasa-robo-suite and is importable at runtime.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.dataset_collectors.get_mikasa_robo_datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">env_info</span>
+
+<span class="n">wrappers_list</span><span class="p">,</span> <span class="n">episode_timeout</span> <span class="o">=</span> <span class="n">env_info</span><span class="p">(</span><span class="s2">&quot;RememberColor9-VLA-v0&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">wrapper_class</span><span class="p">,</span> <span class="n">wrapper_kwargs</span> <span class="ow">in</span> <span class="n">wrappers_list</span><span class="p">:</span>
+    <span class="n">env</span> <span class="o">=</span> <span class="n">wrapper_class</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="o">**</span><span class="n">wrapper_kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="core-wrappers">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Core Wrappers</a><a class="headerlink" href="#core-wrappers" title="Link to this heading">#</a></h2>
+<p>These two wrappers are part of the standard pipeline and are almost always
+required.</p>
+<section id="stateonlytensortodictwrapper">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">StateOnlyTensorToDictWrapper</a><a class="headerlink" href="#stateonlytensortodictwrapper" title="Link to this heading">#</a></h3>
+<p>Converts the raw tensor observation into a dict and injects the
+<code class="docutils literal notranslate"><span class="pre">task_cue</span></code> (filled with sentinel <code class="docutils literal notranslate"><span class="pre">4242424242</span></code> for tasks that do not
+expose a numeric cue) and <code class="docutils literal notranslate"><span class="pre">oracle_info</span></code> fields:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.utils.wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">StateOnlyTensorToDictWrapper</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&quot;RememberColor3-VLA-v0&quot;</span><span class="p">,</span> <span class="n">num_envs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">obs_mode</span><span class="o">=</span><span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+               <span class="n">control_mode</span><span class="o">=</span><span class="s2">&quot;pd_ee_delta_pose&quot;</span><span class="p">,</span> <span class="n">render_mode</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">StateOnlyTensorToDictWrapper</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<span class="n">obs</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>  <span class="c1"># dict_keys([&#39;state&#39;/&#39;sensor_data&#39;, &#39;task_cue&#39;, &#39;oracle_info&#39;])</span>
+</pre></div>
+</div>
+<p><strong>When to use</strong>: always — it is the first wrapper in every recommended
+stack.  Downstream wrappers in <code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers</span></code> then drop
+<code class="docutils literal notranslate"><span class="pre">oracle_info</span></code> and drop <code class="docutils literal notranslate"><span class="pre">task_cue</span></code> for every task <em>except</em> the
+<em>Rotate*</em> family (where PPO oracles need the target angle, and where VLA
+policies should still ignore it because the angle is already in
+<code class="docutils literal notranslate"><span class="pre">info[&quot;language_instruction&quot;]</span></code>).</p>
+</section>
+<section id="convertjointstoeefxyzrpygripperwrapper">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">ConvertJointsToEEFXyzRpyGripperWrapper</a><a class="headerlink" href="#convertjointstoeefxyzrpygripperwrapper" title="Link to this heading">#</a></h3>
+<p>Converts the flattened raw joint-state input <code class="docutils literal notranslate"><span class="pre">obs[&quot;joints&quot;]</span></code> into the
+public VLA proprioception key <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code> with the 7D
+end-effector representation <code class="docutils literal notranslate"><span class="pre">xyz(3)</span> <span class="pre">+</span> <span class="pre">rpy(3)</span> <span class="pre">+</span> <span class="pre">gripper(1)</span></code>.
+The raw <code class="docutils literal notranslate"><span class="pre">obs[&quot;joints&quot;]</span></code> key is removed from the output dict.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.utils.wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">StateOnlyTensorToDictWrapper</span><span class="p">,</span>
+    <span class="n">ConvertJointsToEEFXyzRpyGripperWrapper</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">StateOnlyTensorToDictWrapper</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">ConvertJointsToEEFXyzRpyGripperWrapper</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After this wrapper, <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code> is the canonical 7D proprioception
+vector used by all VLA datasets and evaluation scripts.  See
+<a class="reference internal" href="observation_space.html"><span class="doc">Observation and Action Space</span></a> for the field-by-field reference (units, ranges,
+how <code class="docutils literal notranslate"><span class="pre">gripper_opening</span></code> differs from the <code class="docutils literal notranslate"><span class="pre">gripper_command</span></code> action).</p>
+<p><strong>When to use</strong>: for dataset collection and any downstream pipeline that
+expects the 7D <code class="docutils literal notranslate"><span class="pre">proprio</span></code> vector (the format used in all published
+MIKASA-Robo-VLA datasets).</p>
+</section>
+</section>
+<section id="action-shaping-wrappers">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Action-Shaping Wrappers</a><a class="headerlink" href="#action-shaping-wrappers" title="Link to this heading">#</a></h2>
+<section id="initialzeroactionwrapper">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">InitialZeroActionWrapper</a><a class="headerlink" href="#initialzeroactionwrapper" title="Link to this heading">#</a></h3>
+<p>Executes a fixed number of zero-action steps at the start of each
+episode.  Useful for tasks that require the robot to settle before the
+cue phase begins.</p>
+</section>
+<section id="curriculumphasenoopactionwrapper">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">CurriculumPhaseNoopActionWrapper</a><a class="headerlink" href="#curriculumphasenoopactionwrapper" title="Link to this heading">#</a></h3>
+<p>Replaces the agent’s action with a no-op during the cue (and optional
+empty) phase, while the cue is being shown.  This keeps the robot still
+so that the cue is fully visible, which mirrors the behaviour of the
+PPO oracle.</p>
+<p><strong>When to use</strong>: include it when reproducing the train-data rollout setup for
+any task whose PPO <code class="docutils literal notranslate"><span class="pre">env_info</span></code> stack contains it. The
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>
+helper adds it for those PPO-collected cue-phase tasks. Motion-planning data is
+exported after replay through a plain <code class="docutils literal notranslate"><span class="pre">pd_ee_delta_pose</span></code> rollout, so the VLA
+helper does not add a curriculum action filter for MP-only tasks.</p>
+</section>
+<section id="curriculumphasenoopactionwrapperpdjointpos">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">CurriculumPhaseNoopActionWrapperPdJointPos</a><a class="headerlink" href="#curriculumphasenoopactionwrapperpdjointpos" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pd_joint_pos</span></code>-aware subclass of <code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapper</span></code>.
+Plain zeros aren’t a “stand still” command in <code class="docutils literal notranslate"><span class="pre">pd_joint_pos</span></code> (they
+would drive the robot toward qpos = [0, …, 0]), so during the cue
+phase this wrapper substitutes the robot’s current <code class="docutils literal notranslate"><span class="pre">qpos</span></code> plus a
+normalized gripper command — i.e. <em>hold the current pose</em>.</p>
+<p><strong>When to use</strong>: in the <code class="docutils literal notranslate"><span class="pre">pd_joint_pos</span></code> motion-planning oracle scripts for
+<code class="docutils literal notranslate"><span class="pre">BlinkCountButtonPress*</span></code>. That hold wrapper is upstream of replay; the
+published VLA train-data rollout and the VLA helper both expose the canonical
+unfiltered <code class="docutils literal notranslate"><span class="pre">pd_ee_delta_pose</span></code> validation path.</p>
+</section>
+<section id="camerashutdownwrapper">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">CameraShutdownWrapper</a><a class="headerlink" href="#camerashutdownwrapper" title="Link to this heading">#</a></h3>
+<p>Disables the cameras during the memory phase of tasks where the cameras
+are explicitly turned off as part of the task design (e.g. <em>BatteriesChecker</em>).
+This ensures that the agent cannot cheat by looking at occluded objects.</p>
+</section>
+</section>
+<section id="render-debug-wrappers">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Render / Debug Wrappers</a><a class="headerlink" href="#render-debug-wrappers" title="Link to this heading">#</a></h2>
+<p>These wrappers overlay task-specific information on top of the rendered
+video frame.  They are intended for local debugging and video generation;
+do <strong>not</strong> use them during benchmark evaluation.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wrapper</p></th>
+<th class="head"><p>What it overlays</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RenderStepInfoWrapper</span></code></p></td>
+<td><p>Current step count.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RenderRewardInfoWrapper</span></code></p></td>
+<td><p>Per-step reward value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RenderPressProgressInfoWrapper</span></code></p></td>
+<td><p>Button press progress bar (<em>BlinkCountButtonPress</em> tasks).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RenderWorkingBatteriesInfoWrapper</span></code></p></td>
+<td><p>Ground-truth working battery positions (<em>BatteriesChecker</em> tasks).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ShellGameRenderCupInfoWrapper</span></code></p></td>
+<td><p>Which cup hides the ball (<em>ShellGame</em> tasks).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RotateRenderAngleInfoWrapper</span></code></p></td>
+<td><p>Target and current rotation angle (<em>Rotate</em> tasks).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RenderTraceShapeDebugWrapper</span></code></p></td>
+<td><p>Target path overlay (<em>TraceShape</em> tasks).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RenderTimedTransferInfoWrapper</span></code></p></td>
+<td><p>Timer countdown (<em>TimedTransfer</em> tasks).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DebugRewardWrapper</span></code></p></td>
+<td><p>Breakdown of reward sub-terms for reward engineering.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="task-specific-info-wrappers">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Task-Specific Info Wrappers</a><a class="headerlink" href="#task-specific-info-wrappers" title="Link to this heading">#</a></h2>
+<p>These wrappers inject task-specific fields into the <code class="docutils literal notranslate"><span class="pre">info</span></code> dict returned
+by <code class="docutils literal notranslate"><span class="pre">env.step()</span></code>.  They are used during collection and can be useful for
+evaluation scripts that need access to ground-truth labels.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Wrapper</p></th>
+<th class="head"><p>Added <code class="docutils literal notranslate"><span class="pre">info</span></code> fields</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RememberColorInfoWrapper</span></code></p></td>
+<td><p>Ground-truth target colour index.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RememberShapeInfoWrapper</span></code></p></td>
+<td><p>Ground-truth target shape index.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RememberShapeAndColorInfoWrapper</span></code></p></td>
+<td><p>Ground-truth target shape and colour pair.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MemoryCapacityInfoWrapper</span></code></p></td>
+<td><p>All memorised items for capacity-memory tasks.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="minimal-stacks-for-common-scenarios">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Minimal Stacks for Common Scenarios</a><a class="headerlink" href="#minimal-stacks-for-common-scenarios" title="Link to this heading">#</a></h2>
+<p>The recommended stacks below all wrap through
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>.
+For a manual chain see <a class="reference internal" href="api/wrappers.html"><span class="doc">Wrappers API</span></a> and the per-env “Recommended
+Wrappers” sections in <a class="reference internal" href="vla_environments/index.html"><span class="doc">Environments &amp; Tasks</span></a>.</p>
+<p>Dataset collection / VLA training data (any task):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.utils.apply_wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_mikasa_vla_wrappers</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">env_id</span><span class="p">,</span> <span class="n">num_envs</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">obs_mode</span><span class="o">=</span><span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+               <span class="n">control_mode</span><span class="o">=</span><span class="s2">&quot;pd_ee_delta_pose&quot;</span><span class="p">,</span> <span class="n">render_mode</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">apply_mikasa_vla_wrappers</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>VLA evaluation (clean observations, no rendered overlays):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.utils.apply_wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_mikasa_vla_wrappers</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">env_id</span><span class="p">,</span> <span class="n">num_envs</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">obs_mode</span><span class="o">=</span><span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+               <span class="n">control_mode</span><span class="o">=</span><span class="s2">&quot;pd_ee_delta_pose&quot;</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">apply_mikasa_vla_wrappers</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">include_overlays</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Local debugging with video (overlays kept, <code class="docutils literal notranslate"><span class="pre">RecordEpisode</span></code> outermost):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordEpisode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.utils.apply_wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_mikasa_vla_wrappers</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">env_id</span><span class="p">,</span> <span class="n">num_envs</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">obs_mode</span><span class="o">=</span><span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+               <span class="n">control_mode</span><span class="o">=</span><span class="s2">&quot;pd_ee_delta_pose&quot;</span><span class="p">,</span> <span class="n">render_mode</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">apply_mikasa_vla_wrappers</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">RecordEpisode</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;./videos/</span><span class="si">{</span><span class="n">env_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">max_steps_per_video</span><span class="o">=</span><span class="n">max_steps</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="datasets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Datasets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api/wrappers.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Wrappers API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-default-apply-mikasa-vla-wrappers">The Default: <code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composition-order-manual">Composition Order (manual)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-wrappers">Core Wrappers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stateonlytensortodictwrapper">StateOnlyTensorToDictWrapper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convertjointstoeefxyzrpygripperwrapper">ConvertJointsToEEFXyzRpyGripperWrapper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#action-shaping-wrappers">Action-Shaping Wrappers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialzeroactionwrapper">InitialZeroActionWrapper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curriculumphasenoopactionwrapper">CurriculumPhaseNoopActionWrapper</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curriculumphasenoopactionwrapperpdjointpos">CurriculumPhaseNoopActionWrapperPdJointPos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#camerashutdownwrapper">CameraShutdownWrapper</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-debug-wrappers">Render / Debug Wrappers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-specific-info-wrappers">Task-Specific Info Wrappers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-stacks-for-common-scenarios">Minimal Stacks for Common Scenarios</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/wrappers_cookbook.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Egor Cherepanov, Nikita Kachaev, Alexey K. Kovalev, Aleksandr I. Panov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

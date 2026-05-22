@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mikasa_robo_suite.vla.memory_envs.intercept_grab_vla &#8212; MIKASA-Robo-VLA Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=d539d744" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=1ed818bb"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/mikasa_robo_suite/vla/memory_envs/intercept_grab_vla';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../../_static/copy-code-buttons.js?v=a0e0a20e"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MIKASA-Robo-VLA Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">mikasa_robo_suite.vla.memory_envs.intercept_grab_vla</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for mikasa_robo_suite.vla.memory_envs.intercept_grab_vla</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Interception-and-grasp tasks for the VLA benchmark.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sapien</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.agents.robots.panda.panda</span><span class="w"> </span><span class="kn">import</span> <span class="n">Panda</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.agents.robots.panda.panda_wristcam</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandaWristCam</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.envs.sapien_env</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEnv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.sensors.camera</span><span class="w"> </span><span class="kn">import</span> <span class="n">CameraConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">sapien_utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.building</span><span class="w"> </span><span class="kn">import</span> <span class="n">actors</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.registration</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_env</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.scene_builder.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">TableSceneBuilder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.structs.pose</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pose</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.structs.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span><span class="p">,</span> <span class="n">GPUMemoryConfig</span><span class="p">,</span> <span class="n">SimConfig</span>
+
+
+<div class="viewcode-block" id="InterceptGrabVLABaseEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabVLABaseEnv">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">InterceptGrabVLABaseEnv</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Intercept a moving ball and finish with a stable grasp.</span>
+
+<span class="sd">    A ball is launched across the table with random velocity. The robot has no</span>
+<span class="sd">    separate observation phase: it must react immediately, intercept the ball,</span>
+<span class="sd">    close the gripper around it, and settle into a stable final state.</span>
+
+<span class="sd">    Episode flow:</span>
+<span class="sd">    - The ball is spawned with a sampled initial velocity.</span>
+<span class="sd">    - The robot moves to intercept its trajectory.</span>
+<span class="sd">    - The robot grasps the ball and stabilizes.</span>
+
+<span class="sd">    Success (`success=True`):</span>
+<span class="sd">    - The ball must be grasped and the robot must be static at the end of the</span>
+<span class="sd">      episode step.</span>
+
+<span class="sd">    How to customize:</span>
+<span class="sd">    - `VELOCITY_RANGE` changes how fast the ball moves and therefore how much</span>
+<span class="sd">      anticipation the policy needs.</span>
+<span class="sd">    - `BALL_RADIUS` changes grasp geometry and contact difficulty.</span>
+<span class="sd">    - `ACTION_L2_COEF`, `ACTION_DELTA_L2_COEF`, and `QVEL_L2_COEF` can be used</span>
+<span class="sd">      to regularize aggressive or jerky behavior.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">LANGUAGE_INSTRUCTION</span> <span class="o">=</span> <span class="s2">&quot;Intercept the rolling ball and grasp it to stop it.&quot;</span>
+    <span class="n">SUPPORTED_ROBOTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="s2">&quot;panda_wristcam&quot;</span><span class="p">]</span>
+    <span class="n">agent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Panda</span><span class="p">,</span> <span class="n">PandaWristCam</span><span class="p">]</span>
+
+    <span class="n">VELOCITY_RANGE</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">BALL_RADIUS</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.02</span>
+
+    <span class="n">ACTION_L2_COEF</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">ACTION_DELTA_L2_COEF</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">QVEL_L2_COEF</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">robot_uids</span><span class="o">=</span><span class="s2">&quot;panda_wristcam&quot;</span><span class="p">,</span> <span class="n">robot_init_qpos_noise</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">robot_init_qpos_noise</span> <span class="o">=</span> <span class="n">robot_init_qpos_noise</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">robot_uids</span><span class="o">=</span><span class="n">robot_uids</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_sim_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">SimConfig</span><span class="p">(</span>
+            <span class="n">gpu_memory_config</span><span class="o">=</span><span class="n">GPUMemoryConfig</span><span class="p">(</span>
+                <span class="n">found_lost_pairs_capacity</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">25</span><span class="p">,</span>
+                <span class="n">max_rigid_patch_count</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">18</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_sensor_configs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pose</span> <span class="o">=</span> <span class="n">sapien_utils</span><span class="o">.</span><span class="n">look_at</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">CameraConfig</span><span class="p">(</span><span class="s2">&quot;base_camera&quot;</span><span class="p">,</span> <span class="n">pose</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_human_render_camera_configs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pose</span> <span class="o">=</span> <span class="n">sapien_utils</span><span class="o">.</span><span class="n">look_at</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">CameraConfig</span><span class="p">(</span><span class="s2">&quot;render_camera&quot;</span><span class="p">,</span> <span class="n">pose</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_load_agent</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">sapien</span><span class="o">.</span><span class="n">Pose</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.615</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_scene</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table_scene</span> <span class="o">=</span> <span class="n">TableSceneBuilder</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">robot_init_qpos_noise</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">robot_init_qpos_noise</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table_scene</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ball</span> <span class="o">=</span> <span class="n">actors</span><span class="o">.</span><span class="n">build_sphere</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ball&quot;</span><span class="p">,</span>
+            <span class="n">body_type</span><span class="o">=</span><span class="s2">&quot;dynamic&quot;</span><span class="p">,</span>
+            <span class="n">initial_pose</span><span class="o">=</span><span class="n">sapien</span><span class="o">.</span><span class="n">Pose</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span><span class="p">]),</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reached_status</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_envs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_initialize_episode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_idx</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reached_status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reached_status</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">env_idx</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">table_scene</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">env_idx</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">task_cue</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reward_dict</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="n">xyz</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+            <span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="n">b</span><span class="p">,))</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span> <span class="o">-</span> <span class="mf">0.2</span>
+            <span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="n">b</span><span class="p">,))</span> <span class="o">*</span> <span class="mf">0.25</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.1</span>
+            <span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">set_pose</span><span class="p">(</span><span class="n">Pose</span><span class="o">.</span><span class="n">create_from_pq</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">xyz</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+
+            <span class="n">initial_velocity</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+            <span class="n">initial_velocity</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="n">b</span><span class="p">,))</span> <span class="o">*</span> <span class="mf">0.05</span>
+            <span class="n">min_vel</span><span class="p">,</span> <span class="n">max_vel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VELOCITY_RANGE</span>
+            <span class="n">initial_velocity</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">((</span><span class="n">b</span><span class="p">,))</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_vel</span> <span class="o">-</span> <span class="n">min_vel</span><span class="p">)</span> <span class="o">+</span> <span class="n">min_vel</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">set_linear_velocity</span><span class="p">(</span><span class="n">initial_velocity</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">oracle_info</span> <span class="o">=</span> <span class="n">initial_velocity</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_uids</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="s2">&quot;panda_wristcam&quot;</span><span class="p">):</span>
+                <span class="n">qpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">])</span>
+                <span class="n">qpos</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_episode_rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span>
+                    <span class="mi">0</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">robot_init_qpos_noise</span><span class="p">,</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="n">qpos</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">qpos</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">set_root_pose</span><span class="p">(</span><span class="n">sapien</span><span class="o">.</span><span class="n">Pose</span><span class="p">([</span><span class="o">-</span><span class="mf">0.615</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">robot_uids</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reached_status</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<div class="viewcode-block" id="InterceptGrabVLABaseEnv.evaluate">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabVLABaseEnv.evaluate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">is_ball_grasped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">is_grasping</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="p">)</span>
+        <span class="n">is_robot_static</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">is_static</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">is_ball_grasped</span> <span class="o">&amp;</span> <span class="n">is_robot_static</span><span class="p">,</span>
+            <span class="s2">&quot;task_cue&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_cue</span><span class="p">,</span>
+            <span class="s2">&quot;language_instruction&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LANGUAGE_INSTRUCTION</span><span class="p">,</span>
+            <span class="s2">&quot;oracle_info&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">oracle_info</span><span class="p">,</span>
+            <span class="s2">&quot;is_ball_grasped&quot;</span><span class="p">:</span> <span class="n">is_ball_grasped</span><span class="p">,</span>
+            <span class="s2">&quot;is_robot_static&quot;</span><span class="p">:</span> <span class="n">is_robot_static</span><span class="p">,</span>
+            <span class="s2">&quot;reward_dict&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reward_dict</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_obs_extra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">tcp_pose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obs_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;state_dict&quot;</span><span class="p">]:</span>
+            <span class="n">obs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">ball_pose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="p">,</span>
+                <span class="n">oracle_info</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_info</span><span class="p">,</span>
+                <span class="n">is_ball_grasped</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;is_ball_grasped&quot;</span><span class="p">],</span>
+                <span class="n">ball_linear_vel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">linear_velocity</span><span class="p">,</span>
+                <span class="n">ball_angular_vel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">angular_velocity</span><span class="p">,</span>
+                <span class="n">tcp_to_ball_pos</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">,</span>
+                <span class="n">gripper_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">get_qpos</span><span class="p">()[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">relative_velocity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">linear_velocity</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">linear_velocity</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">obs</span>
+
+<div class="viewcode-block" id="InterceptGrabVLABaseEnv.step">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabVLABaseEnv.step">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="n">obs</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;success&quot;</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">success</span><span class="p">):</span>
+                <span class="n">success</span> <span class="o">=</span> <span class="n">success</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">terminated</span><span class="p">):</span>
+                    <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">success</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">terminated</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">terminated</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">success</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">terminated</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">terminated</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">obs</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span></div>
+
+
+<div class="viewcode-block" id="InterceptGrabVLABaseEnv.compute_dense_reward">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabVLABaseEnv.compute_dense_reward">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_dense_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="n">tcp_to_obj_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">reward</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">tcp_to_obj_dist</span><span class="p">))</span>
+        <span class="n">reward</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">tcp_to_obj_dist</span><span class="p">))</span>
+
+        <span class="n">current_gripper_width</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">get_qpos</span><span class="p">()[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">is_ball_grasped</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;is_ball_grasped&quot;</span><span class="p">]</span>
+
+        <span class="n">dist_tcp_to_ball_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">dist_tcp_to_ball_y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">dist_tcp_to_ball_z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+
+        <span class="n">ball_in_gripper</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">dist_tcp_to_ball_x</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">dist_tcp_to_ball_y</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">dist_tcp_to_ball_z</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">tcp_to_obj_dist</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">current_gripper_width</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">reward</span><span class="p">[</span><span class="n">ball_in_gripper</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">10.0</span>
+
+        <span class="n">very_close_mask</span> <span class="o">=</span> <span class="n">tcp_to_obj_dist</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span> <span class="o">*</span> <span class="mf">1.25</span>
+        <span class="n">reward</span><span class="p">[</span><span class="n">very_close_mask</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">30.0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tcp_to_obj_dist</span><span class="p">[</span><span class="n">very_close_mask</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span>
+
+        <span class="n">optimal_width</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">BALL_RADIUS</span>
+        <span class="n">width_error</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">current_gripper_width</span><span class="p">[</span><span class="n">ball_in_gripper</span><span class="p">]</span> <span class="o">-</span> <span class="n">optimal_width</span><span class="p">)</span>
+        <span class="n">width_error</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">width_error</span> <span class="o">-</span> <span class="mf">0.02</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">closing_reward</span> <span class="o">=</span> <span class="mf">90.0</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span> <span class="o">*</span> <span class="n">width_error</span><span class="p">)</span>
+        <span class="n">reward</span><span class="p">[</span><span class="n">ball_in_gripper</span><span class="p">]</span> <span class="o">+=</span> <span class="n">closing_reward</span>
+
+        <span class="n">gripper_attempt_mask</span> <span class="o">=</span> <span class="n">ball_in_gripper</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">current_gripper_width</span> <span class="o">&lt;=</span> <span class="n">optimal_width</span> <span class="o">+</span> <span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">reward</span><span class="p">[</span><span class="n">gripper_attempt_mask</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">90.0</span>
+
+        <span class="n">reward</span><span class="p">[</span><span class="n">is_ball_grasped</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">200</span>
+
+        <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">linear_velocity</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">av</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">angular_velocity</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">static_reward</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">av</span><span class="p">)</span>
+
+        <span class="n">robot_static_reward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">is_static</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+        <span class="n">reward</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">300</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reward_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;tcp_to_obj_dist&quot;</span><span class="p">:</span> <span class="n">tcp_to_obj_dist</span><span class="p">,</span>
+            <span class="s2">&quot;is_grasped_reward&quot;</span><span class="p">:</span> <span class="n">is_ball_grasped</span><span class="p">,</span>
+            <span class="s2">&quot;ball_in_gripper&quot;</span><span class="p">:</span> <span class="n">ball_in_gripper</span><span class="p">,</span>
+            <span class="s2">&quot;dist_tcp_to_ball_x&quot;</span><span class="p">:</span> <span class="n">dist_tcp_to_ball_x</span><span class="p">,</span>
+            <span class="s2">&quot;dist_tcp_to_ball_y&quot;</span><span class="p">:</span> <span class="n">dist_tcp_to_ball_y</span><span class="p">,</span>
+            <span class="s2">&quot;dist_tcp_to_ball_z&quot;</span><span class="p">:</span> <span class="n">dist_tcp_to_ball_z</span><span class="p">,</span>
+            <span class="s2">&quot;current_gripper_width&quot;</span><span class="p">:</span> <span class="n">current_gripper_width</span><span class="p">,</span>
+            <span class="s2">&quot;very_close_mask&quot;</span><span class="p">:</span> <span class="n">very_close_mask</span><span class="p">,</span>
+            <span class="s2">&quot;static_reward&quot;</span><span class="p">:</span> <span class="n">static_reward</span><span class="p">,</span>
+            <span class="s2">&quot;robot_static_reward&quot;</span><span class="p">:</span> <span class="n">robot_static_reward</span><span class="p">,</span>
+            <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">],</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">reward</span></div>
+
+
+<div class="viewcode-block" id="InterceptGrabVLABaseEnv.compute_normalized_dense_reward">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabVLABaseEnv.compute_normalized_dense_reward">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_normalized_dense_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_dense_reward</span><span class="p">(</span><span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">)</span> <span class="o">/</span> <span class="mf">300.0</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="InterceptGrabSlowVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabSlowVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;InterceptGrabSlow-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InterceptGrabSlowVLAEnv</span><span class="p">(</span><span class="n">InterceptGrabVLABaseEnv</span><span class="p">):</span>
+    <span class="n">VELOCITY_RANGE</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="InterceptGrabMediumVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabMediumVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;InterceptGrabMedium-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InterceptGrabMediumVLAEnv</span><span class="p">(</span><span class="n">InterceptGrabVLABaseEnv</span><span class="p">):</span>
+    <span class="n">VELOCITY_RANGE</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="InterceptGrabFastVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.intercept_grab_vla.InterceptGrabFastVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;InterceptGrabFast-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InterceptGrabFastVLAEnv</span><span class="p">(</span><span class="n">InterceptGrabVLABaseEnv</span><span class="p">):</span>
+    <span class="n">VELOCITY_RANGE</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Egor Cherepanov, Nikita Kachaev, Alexey K. Kovalev, Aleksandr I. Panov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

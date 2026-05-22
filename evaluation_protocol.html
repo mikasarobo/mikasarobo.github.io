@@ -1,0 +1,1301 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Evaluation Protocol &#8212; MIKASA-Robo-VLA Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d539d744" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=1ed818bb"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'evaluation_protocol';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/copy-code-buttons.js?v=a0e0a20e"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Observation and Action Space" href="observation_space.html" />
+    <link rel="prev" title="Benchmarking" href="benchmarking.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MIKASA-Robo-VLA Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Evaluation Protocol</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="evaluation-protocol">
+<h1>Evaluation Protocol<a class="headerlink" href="#evaluation-protocol" title="Link to this heading">#</a></h1>
+<p>This page is the canonical specification for evaluating a trained VLA model on
+MIKASA-Robo-VLA.  For how to run evaluations in practice — CLI flags, output
+layout, Python API — see <a class="reference internal" href="benchmarking.html"><span class="doc">Benchmarking</span></a>.</p>
+<nav class="contents local" id="on-this-page">
+<p class="topic-title">On this page</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#protocol-at-a-glance" id="id2">Protocol at a Glance</a></p></li>
+<li><p><a class="reference internal" href="#observation-and-action-format" id="id3">Observation and Action Format</a></p>
+<ul>
+<li><p><a class="reference internal" href="#action-chunking" id="id4">Action chunking</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#metrics" id="id5">Metrics</a></p>
+<ul>
+<li><p><a class="reference internal" href="#success-once-main-metric" id="id6"><code class="docutils literal notranslate"><span class="pre">success_once</span></code> (main metric)</a></p></li>
+<li><p><a class="reference internal" href="#return-debug-only" id="id7"><code class="docutils literal notranslate"><span class="pre">return</span></code> (debug only)</a></p></li>
+<li><p><a class="reference internal" href="#reported-sr-levels" id="id8">Reported SR levels</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#seeding" id="id9">Seeding</a></p></li>
+<li><p><a class="reference internal" href="#num-envs" id="id10"><code class="docutils literal notranslate"><span class="pre">num_envs</span></code></a></p></li>
+<li><p><a class="reference internal" href="#wrapper-stack" id="id11">Wrapper Stack</a></p></li>
+<li><p><a class="reference internal" href="#json-output-schema" id="id12">JSON Output Schema</a></p>
+<ul>
+<li><p><a class="reference internal" href="#per-task-file-env-id-json" id="id13">Per-task file <code class="docutils literal notranslate"><span class="pre">&lt;ENV_ID&gt;.json</span></code></a></p></li>
+<li><p><a class="reference internal" href="#summary-file-summary-json" id="id14">Summary file <code class="docutils literal notranslate"><span class="pre">summary.json</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reference-evaluation-script" id="id15">Reference Evaluation Script</a></p></li>
+<li><p><a class="reference internal" href="#what-to-report-in-papers" id="id16">What to Report in Papers</a></p></li>
+<li><p><a class="reference internal" href="#cross-split-and-partial-evaluation" id="id17">Cross-Split and Partial Evaluation</a></p></li>
+</ul>
+</nav>
+<section id="protocol-at-a-glance">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Protocol at a Glance</a><a class="headerlink" href="#protocol-at-a-glance" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 38.0%" />
+<col style="width: 62.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Canonical value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Split</p></td>
+<td><p>Chosen explicitly by the user (<code class="docutils literal notranslate"><span class="pre">short</span></code> / <code class="docutils literal notranslate"><span class="pre">medium</span></code> / <code class="docutils literal notranslate"><span class="pre">long</span></code>).
+No auto-detection from a checkpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Episodes per task</p></td>
+<td><p><strong>50</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Seeds</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4242424242,</span> <span class="pre">4242424243,</span> <span class="pre">…,</span> <span class="pre">4242424291</span></code> (same stream for every task)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parallel envs</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">num_envs=1</span></code> (default); <code class="docutils literal notranslate"><span class="pre">num_envs</span> <span class="pre">&gt;</span> <span class="pre">1</span></code> allowed as opt-in speedup</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">obs_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;rgb&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">control_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;pd_ee_delta_pose&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reward_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;normalized_dense&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Wrapper stack</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers(env,</span> <span class="pre">include_overlays=False)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Main metric</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">success_once</span></code> per episode</p></td>
+</tr>
+<tr class="row-odd"><td><p>Debug metric</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mean_return</span></code> per task (not aggregated to split level)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="observation-and-action-format">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Observation and Action Format</a><a class="headerlink" href="#observation-and-action-format" title="Link to this heading">#</a></h2>
+<p>After <code class="docutils literal notranslate"><span class="pre">gym.make</span></code> + <code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers(env,</span> <span class="pre">include_overlays=False)</span></code>,
+<code class="docutils literal notranslate"><span class="pre">obs</span></code> always contains <code class="docutils literal notranslate"><span class="pre">obs[&quot;rgb&quot;]</span></code> (<code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">128,</span> <span class="pre">128,</span> <span class="pre">6)</span></code> uint8 — two
+cameras concatenated on the channel axis) and <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code>
+(<code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">7)</span></code> float32 — absolute EEF pose + gripper opening).  The
+<em>Rotate*</em> family additionally exposes <code class="docutils literal notranslate"><span class="pre">obs[&quot;task_cue&quot;]</span></code> (target angle
+for the RL oracle); for all other tasks this key is dropped by the
+canonical helper.  <code class="docutils literal notranslate"><span class="pre">oracle_info</span></code> is never exposed in the VLA-facing
+observation.  The action is a <code class="docutils literal notranslate"><span class="pre">(B,</span> <span class="pre">7)</span></code> <code class="docutils literal notranslate"><span class="pre">float32</span></code> tensor in the
+normalised <code class="docutils literal notranslate"><span class="pre">pd_ee_delta_pose</span></code> action space; all seven components are
+clamped to <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>.</p>
+<p>The canonical, field-by-field specification — value ranges, units, the
+exact gripper conventions, and the difference between
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;][...,</span> <span class="pre">6]</span></code> and <code class="docutils literal notranslate"><span class="pre">action[6]</span></code> — lives in
+<a class="reference internal" href="observation_space.html"><span class="doc">Observation and Action Space</span></a>.  All evaluation pipelines (online runs, dataset
+collection, published datasets) use exactly the same layout, so the
+<a class="reference internal" href="observation_space.html"><span class="doc">Observation and Action Space</span></a> reference is authoritative for every context.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>A canonical leaderboard policy consumes only the camera images,
+<code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code>, and <code class="docutils literal notranslate"><span class="pre">info[&quot;language_instruction&quot;]</span></code>.  <code class="docutils literal notranslate"><span class="pre">oracle_info</span></code>
+is privileged and stripped from the VLA-facing observation.  <code class="docutils literal notranslate"><span class="pre">task_cue</span></code>
+exists solely as an RL-training signal for the <em>Rotate*</em> family — the
+same target angle is also embedded in the natural-language instruction,
+so VLAs should ignore the <code class="docutils literal notranslate"><span class="pre">task_cue</span></code> key entirely.  Reading either
+field disqualifies a run from the canonical leaderboard.</p>
+</div>
+<section id="action-chunking">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Action chunking</a><a class="headerlink" href="#action-chunking" title="Link to this heading">#</a></h3>
+<p>VLA policies typically predict a chunk of <code class="docutils literal notranslate"><span class="pre">K</span></code> actions per forward pass.
+The benchmark runner consumes them with a <code class="docutils literal notranslate"><span class="pre">collections.deque</span></code> (FIFO):</p>
+<ol class="arabic simple">
+<li><p>At the start of every episode a <strong>fresh, empty</strong> <code class="docutils literal notranslate"><span class="pre">deque</span></code> is created.</p></li>
+<li><p>On each simulator step, if the deque is empty, <code class="docutils literal notranslate"><span class="pre">policy.forward(obs)</span></code>
+is called to produce <code class="docutils literal notranslate"><span class="pre">(K,</span> <span class="pre">action_dim)</span></code> actions which are pushed onto
+the deque with <code class="docutils literal notranslate"><span class="pre">extend</span></code>.</p></li>
+<li><p>One action is popped from the front with <code class="docutils literal notranslate"><span class="pre">popleft</span></code> and passed to
+<code class="docutils literal notranslate"><span class="pre">env.step(action)</span></code>.</p></li>
+</ol>
+<p>For <code class="docutils literal notranslate"><span class="pre">K=1</span></code> this is identical to standard per-step inference: the deque is
+refilled on every step.  See <code class="docutils literal notranslate"><span class="pre">evaluate_task</span></code> in
+<code class="docutils literal notranslate"><span class="pre">mikasa_robo_suite/vla/benchmarking.py</span></code> for the exact implementation.</p>
+</section>
+</section>
+<section id="metrics">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Metrics</a><a class="headerlink" href="#metrics" title="Link to this heading">#</a></h2>
+<section id="success-once-main-metric">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">success_once</span></code> (main metric)</a><a class="headerlink" href="#success-once-main-metric" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">success_once</span></code> is a <strong>boolean latch</strong>, not a count.  At each simulator
+step the runner performs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success_once</span> <span class="o">=</span> <span class="n">success_once</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">])</span>   <span class="c1"># OR-latch</span>
+</pre></div>
+</div>
+<p>so the value flips from <code class="docutils literal notranslate"><span class="pre">False</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> the <em>first</em> time the task
+succeeds and stays <code class="docutils literal notranslate"><span class="pre">True</span></code> for the remainder of the episode.  The
+canonical per-episode metric is the final value of this latch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">success_once</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">True</span> <span class="n">over</span> <span class="nb">all</span> <span class="n">simulator</span> <span class="n">steps</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This unifies tasks that succeed mid-episode (e.g. <em>ShellGameTouch</em>) and
+tasks that only emit success on the final step (e.g. <em>TimedTransfer</em>) under
+a single binary outcome.  See <code class="docutils literal notranslate"><span class="pre">mikasa_robo_suite/vla/benchmarking.py</span></code>
+(<code class="docutils literal notranslate"><span class="pre">evaluate_task</span></code>) for the exact code path.</p>
+</section>
+<section id="return-debug-only">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">return</span></code> (debug only)</a><a class="headerlink" href="#return-debug-only" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">reward</span><span class="p">)</span>  <span class="n">over</span> <span class="nb">all</span> <span class="n">steps</span> <span class="n">of</span> <span class="n">the</span> <span class="n">episode</span>
+</pre></div>
+</div>
+<p>Use this to inspect reward shaping or training quality.  Do not aggregate it
+to split level or use it as a comparison number.</p>
+</section>
+<section id="reported-sr-levels">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Reported SR levels</a><a class="headerlink" href="#reported-sr-levels" title="Link to this heading">#</a></h3>
+<p>Three numbers are required per evaluation run:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 32.0%" />
+<col style="width: 68.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Per-task SR</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SR_task</span> <span class="pre">=</span> <span class="pre">mean(success_once)</span></code> over the 50 episodes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Per-split SR</strong> <em>(main)</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SR_split</span> <span class="pre">=</span> <span class="pre">mean(SR_task</span>&#160; <span class="pre">for</span> <span class="pre">all</span> <span class="pre">tasks</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">split)</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Per-memory-type SR</strong></p></td>
+<td><p>For each memory type present in the split:
+<code class="docutils literal notranslate"><span class="pre">SR_mem</span> <span class="pre">=</span> <span class="pre">mean(SR_task</span>&#160; <span class="pre">for</span> <span class="pre">tasks</span> <span class="pre">with</span> <span class="pre">that</span> <span class="pre">memory_type)</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="seeding">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Seeding</a><a class="headerlink" href="#seeding" title="Link to this heading">#</a></h2>
+<p>For <strong>every</strong> task independently, run 50 episodes with seeds:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>env.reset(seed=4242424242 + i)   for i in 0, 1, …, 49
+</pre></div>
+</div>
+<p>The starting seed <code class="docutils literal notranslate"><span class="pre">4242424242</span></code> matches the one used by muVLA when it was
+evaluated on MIKASA-Robo, so results are directly comparable to that baseline.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Seeds are the same across tasks — each task independently starts from
+<code class="docutils literal notranslate"><span class="pre">4242424242</span></code>.  This gives full determinism, but it means the per-episode
+initial states are <strong>correlated across tasks</strong>.  Two tasks evaluated under
+this protocol are not statistically independent.  Account for this when
+computing confidence intervals or aggregate statistics.</p>
+</div>
+</section>
+<section id="num-envs">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">num_envs</span></code></a><a class="headerlink" href="#num-envs" title="Link to this heading">#</a></h2>
+<p>The canonical evaluation uses <code class="docutils literal notranslate"><span class="pre">num_envs=1</span></code>.  The episode-to-seed mapping is
+then trivial: episode <code class="docutils literal notranslate"><span class="pre">i</span></code> is the state produced by
+<code class="docutils literal notranslate"><span class="pre">env.reset(seed=4242424242</span> <span class="pre">+</span> <span class="pre">i)</span></code>.</p>
+<p>For wall-clock speedups (especially for the Long split) you may use
+<code class="docutils literal notranslate"><span class="pre">num_envs</span> <span class="pre">&gt;</span> <span class="pre">1</span></code> as an opt-in optimisation, but each parallel env must be
+seeded so that the set of 50 <code class="docutils literal notranslate"><span class="pre">(env_id,</span> <span class="pre">episode_idx)</span></code> pairs is identical to
+the <code class="docutils literal notranslate"><span class="pre">num_envs=1</span></code> run.  The reported SR must match.</p>
+</section>
+<section id="wrapper-stack">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Wrapper Stack</a><a class="headerlink" href="#wrapper-stack" title="Link to this heading">#</a></h2>
+<p>Always construct the env with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span>
+    <span class="n">env_id</span><span class="p">,</span>
+    <span class="n">num_envs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">obs_mode</span><span class="o">=</span><span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+    <span class="n">control_mode</span><span class="o">=</span><span class="s2">&quot;pd_ee_delta_pose&quot;</span><span class="p">,</span>
+    <span class="n">reward_mode</span><span class="o">=</span><span class="s2">&quot;normalized_dense&quot;</span><span class="p">,</span>
+    <span class="n">render_mode</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">apply_mikasa_vla_wrappers</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">include_overlays</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">include_overlays=False</span></code> strips debug/render overlays so they cannot affect
+timing or bleed into recorded observations.  The benchmark runner
+(<code class="docutils literal notranslate"><span class="pre">evaluate_benchmark</span></code>) does this automatically.</p>
+</section>
+<section id="json-output-schema">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">JSON Output Schema</a><a class="headerlink" href="#json-output-schema" title="Link to this heading">#</a></h2>
+<section id="per-task-file-env-id-json">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Per-task file <code class="docutils literal notranslate"><span class="pre">&lt;ENV_ID&gt;.json</span></code></a><a class="headerlink" href="#per-task-file-env-id-json" title="Link to this heading">#</a></h3>
+<p>One file per evaluated env ID:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;env_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RememberColor3-VLA-v0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;split&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Short&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;memory_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;start_seed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4242424242</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;n_episodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;successes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;returns&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">[</span><span class="mf">12.4</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">15.7</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;sr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.74</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;mean_return&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">9.8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;benchmark_commit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;git sha&gt;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;control_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pd_ee_delta_pose&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;obs_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rgb&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;wrapper_chain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apply_mikasa_vla_wrappers(include_overlays=False)&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;action_chunk_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-vla&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}},</span>
+<span class="w">  </span><span class="nt">&quot;episode_lengths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;episode_seeds&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">[</span><span class="mi">4242424242</span><span class="p">,</span><span class="w"> </span><span class="mi">4242424243</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">successes</span></code> and <code class="docutils literal notranslate"><span class="pre">returns</span></code> have length <code class="docutils literal notranslate"><span class="pre">n_episodes</span></code>.  <code class="docutils literal notranslate"><span class="pre">sr</span></code> and
+<code class="docutils literal notranslate"><span class="pre">mean_return</span></code> are their means.  <code class="docutils literal notranslate"><span class="pre">episode_lengths</span></code> (the number of
+simulator steps in each episode before termination) and <code class="docutils literal notranslate"><span class="pre">episode_seeds</span></code>
+(<code class="docutils literal notranslate"><span class="pre">start_seed</span> <span class="pre">+</span> <span class="pre">i</span></code> for <code class="docutils literal notranslate"><span class="pre">i</span></code> in <code class="docutils literal notranslate"><span class="pre">0…n_episodes-1</span></code>) are always written by
+<code class="docutils literal notranslate"><span class="pre">evaluate_benchmark</span></code> and may be safely consumed by downstream tools, but
+they are not required for the canonical SR comparison and may be omitted
+from manually constructed result files.</p>
+</section>
+<section id="summary-file-summary-json">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Summary file <code class="docutils literal notranslate"><span class="pre">summary.json</span></code></a><a class="headerlink" href="#summary-file-summary-json" title="Link to this heading">#</a></h3>
+<p>One file per run, updated after every task completes:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;split&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Short&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sr_split&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.61</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sr_per_memory_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Negative&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.42</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Object&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Prospective&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.30</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Spatial&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.72</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Temporal&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.50</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Tracking&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.40</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;RememberColor3-VLA-v0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;per_task_sr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;RememberColor3-VLA-v0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.74</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;per_task_mean_return&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;RememberColor3-VLA-v0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">9.8</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">summary.json</span></code> is rewritten on disk after every completed task, so a run
+that is interrupted mid-way leaves a valid partial summary.</p>
+</section>
+</section>
+<section id="reference-evaluation-script">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Reference Evaluation Script</a><a class="headerlink" href="#reference-evaluation-script" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">examples/eval_demo.py</span></code> is a working reference built around
+<code class="docutils literal notranslate"><span class="pre">mikasa_robo_suite.vla.benchmarking</span></code>.  It uses <code class="docutils literal notranslate"><span class="pre">DummyChunkPolicy</span></code>
+(random actions) so you can run it end-to-end before plugging in a real model:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">examples/eval_demo.py</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Run a MIKASA-Robo-VLA benchmark evaluation.</span>
+
+<span class="sd">Replace ``DummyChunkPolicy`` with your own policy adapter.  The benchmark</span>
+<span class="sd">runner handles CSV split loading, canonical per-task seeds, action chunk</span>
+<span class="sd">queues, ``success_once`` latching, JSON files, and split aggregation.</span>
+
+<span class="sd">Results are saved to a timestamped subdirectory under ``--output-dir`` so</span>
+<span class="sd">successive runs never overwrite each other.</span>
+
+<span class="sd">Examples (run from the repository root)</span>
+<span class="sd">----------------------------------------</span>
+<span class="sd">Smoke-test one task, one episode::</span>
+
+<span class="sd">    uv run python examples/eval_demo.py \</span>
+<span class="sd">        --num-episodes 1 --sim-backend cpu \</span>
+<span class="sd">        --output-dir eval_results/dummy</span>
+
+<span class="sd">Full canonical Short-split run, 50 episodes per task::</span>
+
+<span class="sd">    uv run python examples/eval_demo.py \</span>
+<span class="sd">        --split short \</span>
+<span class="sd">        --output-dir results/my_model</span>
+
+<span class="sd">Specific tasks::</span>
+
+<span class="sd">    uv run python examples/eval_demo.py \</span>
+<span class="sd">        --task RememberColor3-VLA-v0 \</span>
+<span class="sd">        --task ShellGameTouch-VLA-v0 \</span>
+<span class="sd">        --output-dir results/my_model</span>
+
+<span class="sd">All 90 benchmark tasks::</span>
+
+<span class="sd">    uv run python examples/eval_demo.py \</span>
+<span class="sd">        --split all \</span>
+<span class="sd">        --output-dir results/my_model</span>
+
+<span class="sd">With per-episode rollout videos::</span>
+
+<span class="sd">    uv run python examples/eval_demo.py \</span>
+<span class="sd">        --split short \</span>
+<span class="sd">        --save-videos \</span>
+<span class="sd">        --output-dir results/my_model</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.benchmarking</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NUM_EPISODES_PER_TASK</span><span class="p">,</span>
+    <span class="n">START_SEED</span><span class="p">,</span>
+    <span class="n">BenchmarkConfig</span><span class="p">,</span>
+    <span class="n">JsonDict</span><span class="p">,</span>
+    <span class="n">RichBenchmarkUI</span><span class="p">,</span>
+    <span class="n">evaluate_benchmark</span><span class="p">,</span>
+    <span class="n">make_run_dir</span><span class="p">,</span>
+    <span class="n">select_benchmark_tasks</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DummyChunkPolicy</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return random action chunks in the canonical 7D EE-delta action space.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">action_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">chunk_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;chunk_size must be &gt; 0, got </span><span class="si">{</span><span class="n">chunk_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">action_dim</span><span class="p">)</span>
+
+    <span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">proprio</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;proprio&quot;</span><span class="p">)</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">proprio</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">proprio</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_dim</span><span class="p">),</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_args</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span>
+        <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">RawDescriptionHelpFormatter</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">selection</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">()</span>
+    <span class="n">selection</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--split&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;short&quot;</span><span class="p">,</span> <span class="s2">&quot;medium&quot;</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">),</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;Evaluate every task in the given horizon split, &quot;</span>
+            <span class="s2">&quot;or &#39;all&#39; for all 90 benchmark tasks.&quot;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">selection</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--task&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span>
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;tasks&quot;</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;ENV_ID&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Evaluate one env ID. Repeat to build an arbitrary subset.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--num-episodes&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">NUM_EPISODES_PER_TASK</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--start-seed&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">START_SEED</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--chunk-size&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--output-dir&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">Path</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;eval_results&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;dummy&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Base directory. Results go into a timestamped subdirectory.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--resume&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="n">Path</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;RUN_DIR&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;Resume an interrupted run. Pass the timestamped run directory &quot;</span>
+            <span class="s2">&quot;(e.g. eval_results/dummy/short/2026-05-21_18-52-16). &quot;</span>
+            <span class="s2">&quot;Tasks that already have a result JSON there are skipped. &quot;</span>
+            <span class="s2">&quot;The split is inferred from existing results; override with --split.&quot;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--save-videos&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+            <span class="s2">&quot;Save a rollout video for every episode of every task. &quot;</span>
+            <span class="s2">&quot;Videos are written to &lt;output-dir&gt;/&lt;timestamp&gt;/videos/&lt;env_id&gt;/.&quot;</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--sim-backend&quot;</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;ManiSkill sim backend (&#39;cpu&#39; or &#39;gpu&#39;). Default: gpu.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--render-mode&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_split_label</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">splits</span> <span class="o">=</span> <span class="p">{</span><span class="n">task</span><span class="o">.</span><span class="n">split</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">}</span>
+    <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">splits</span><span class="p">))</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;custom&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_resume_state</span><span class="p">(</span><span class="n">resume_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">JsonDict</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load completed task results from *resume_dir* and infer the benchmark split.</span>
+
+<span class="sd">    Returns ``(completed_results, inferred_split)``.  *inferred_split* is one of</span>
+<span class="sd">    ``&quot;short&quot;``, ``&quot;medium&quot;``, ``&quot;long&quot;``, ``&quot;all&quot;``, or ``None`` if it cannot</span>
+<span class="sd">    be determined (user must pass ``--split`` explicitly in that case).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">resume_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;--resume directory not found: </span><span class="si">{</span><span class="n">resume_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">completed</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">JsonDict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">resume_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.json&quot;</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s2">&quot;summary&quot;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">with</span> <span class="n">p</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">completed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+
+    <span class="c1"># Infer split from completed results: if all tasks share one split → that</span>
+    <span class="c1"># split; if multiple splits are present → &quot;all&quot; (full benchmark run).</span>
+    <span class="n">splits</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">completed</span><span class="p">}</span>
+    <span class="n">splits</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">splits</span><span class="p">:</span>
+        <span class="n">inferred_split</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">splits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">inferred_split</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">splits</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inferred_split</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+
+    <span class="k">return</span> <span class="n">completed</span><span class="p">,</span> <span class="n">inferred_split</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">completed_results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">JsonDict</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">resume</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># ------------------------------------------------------------------ #</span>
+        <span class="c1"># Resume mode: load finished tasks, determine remaining work          #</span>
+        <span class="c1"># ------------------------------------------------------------------ #</span>
+        <span class="n">completed_results</span><span class="p">,</span> <span class="n">inferred_split</span> <span class="o">=</span> <span class="n">_load_resume_state</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">resume</span><span class="p">)</span>
+        <span class="n">completed_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;env_id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">completed_results</span><span class="p">}</span>
+
+        <span class="c1"># Task selection: explicit flag wins; fall back to inferred split.</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="p">:</span>
+            <span class="n">all_tasks</span> <span class="o">=</span> <span class="n">select_benchmark_tasks</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span>
+            <span class="n">all_tasks</span> <span class="o">=</span> <span class="n">select_benchmark_tasks</span><span class="p">(</span><span class="n">env_ids</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">tasks</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">inferred_split</span><span class="p">:</span>
+            <span class="n">all_tasks</span> <span class="o">=</span> <span class="n">select_benchmark_tasks</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="n">inferred_split</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot infer the task split from the resume directory. &quot;</span>
+                <span class="s2">&quot;Pass --split or --task explicitly.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">all_tasks</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">env_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">completed_ids</span><span class="p">]</span>
+        <span class="n">run_dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">resume</span>  <span class="c1"># write results back into the same directory</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># ------------------------------------------------------------------ #</span>
+        <span class="c1"># Fresh run                                                            #</span>
+        <span class="c1"># ------------------------------------------------------------------ #</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="p">:</span>
+            <span class="n">tasks</span> <span class="o">=</span> <span class="n">select_benchmark_tasks</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span>
+            <span class="n">tasks</span> <span class="o">=</span> <span class="n">select_benchmark_tasks</span><span class="p">(</span><span class="n">env_ids</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">tasks</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tasks</span> <span class="o">=</span> <span class="n">select_benchmark_tasks</span><span class="p">(</span><span class="n">env_ids</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RememberColor3-VLA-v0&quot;</span><span class="p">])</span>
+
+        <span class="n">run_dir</span> <span class="o">=</span> <span class="n">make_run_dir</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">/</span> <span class="n">_split_label</span><span class="p">(</span><span class="n">tasks</span><span class="p">))</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="n">BenchmarkConfig</span><span class="p">(</span>
+        <span class="n">start_seed</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">start_seed</span><span class="p">,</span>
+        <span class="n">n_episodes</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">num_episodes</span><span class="p">,</span>
+        <span class="n">sim_backend</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">sim_backend</span><span class="p">,</span>
+        <span class="n">save_videos</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">save_videos</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">policy</span> <span class="o">=</span> <span class="n">DummyChunkPolicy</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">RichBenchmarkUI</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">n_episodes</span><span class="p">,</span> <span class="n">initial_results</span><span class="o">=</span><span class="n">completed_results</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">)</span> <span class="k">as</span> <span class="n">ui</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">evaluate_benchmark</span><span class="p">(</span>
+            <span class="n">tasks</span><span class="p">,</span>
+            <span class="n">policy</span><span class="p">,</span>
+            <span class="n">config</span><span class="p">,</span>
+            <span class="n">output_dir</span><span class="o">=</span><span class="n">run_dir</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dummy-random-chunk-policy&quot;</span><span class="p">,</span> <span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;chunk_size&quot;</span><span class="p">:</span> <span class="n">policy</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">}},</span>
+            <span class="n">task_start_callback</span><span class="o">=</span><span class="n">ui</span><span class="o">.</span><span class="n">on_task_start</span><span class="p">,</span>
+            <span class="n">episode_callback</span><span class="o">=</span><span class="n">ui</span><span class="o">.</span><span class="n">on_episode_done</span><span class="p">,</span>
+            <span class="n">task_done_callback</span><span class="o">=</span><span class="n">ui</span><span class="o">.</span><span class="n">on_task_done</span><span class="p">,</span>
+            <span class="n">initial_results</span><span class="o">=</span><span class="n">completed_results</span> <span class="k">if</span> <span class="n">completed_results</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">rich.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+
+    <span class="n">console</span> <span class="o">=</span> <span class="n">Console</span><span class="p">()</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+
+    <span class="n">summary_table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;[bold]Benchmark Summary[/bold]&quot;</span><span class="p">,</span>
+        <span class="n">show_header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">header_style</span><span class="o">=</span><span class="s2">&quot;bold cyan&quot;</span><span class="p">,</span>
+        <span class="n">border_style</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">summary_table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;Memory Type&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+    <span class="n">summary_table</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s2">&quot;SR&quot;</span><span class="p">,</span> <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">memory_type</span><span class="p">,</span> <span class="n">sr</span> <span class="ow">in</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&quot;sr_per_memory_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;bright_green&quot;</span> <span class="k">if</span> <span class="n">sr</span> <span class="o">&gt;=</span> <span class="mf">0.7</span> <span class="k">else</span> <span class="s2">&quot;yellow&quot;</span> <span class="k">if</span> <span class="n">sr</span> <span class="o">&gt;=</span> <span class="mf">0.4</span> <span class="k">else</span> <span class="s2">&quot;red&quot;</span>
+        <span class="n">summary_table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="n">memory_type</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">]</span><span class="si">{</span><span class="n">sr</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">[/</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+
+    <span class="n">summary_table</span><span class="o">.</span><span class="n">add_section</span><span class="p">()</span>
+    <span class="n">sr_split</span> <span class="o">=</span> <span class="n">summary</span><span class="p">[</span><span class="s2">&quot;sr_split&quot;</span><span class="p">]</span>
+    <span class="n">split_color</span> <span class="o">=</span> <span class="s2">&quot;bright_green&quot;</span> <span class="k">if</span> <span class="n">sr_split</span> <span class="o">&gt;=</span> <span class="mf">0.7</span> <span class="k">else</span> <span class="s2">&quot;yellow&quot;</span> <span class="k">if</span> <span class="n">sr_split</span> <span class="o">&gt;=</span> <span class="mf">0.4</span> <span class="k">else</span> <span class="s2">&quot;red&quot;</span>
+    <span class="n">summary_table</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span>
+        <span class="s2">&quot;[bold]Overall SR[/bold]&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;[bold </span><span class="si">{</span><span class="n">split_color</span><span class="si">}</span><span class="s2">]</span><span class="si">{</span><span class="n">sr_split</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">[/bold </span><span class="si">{</span><span class="n">split_color</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">summary_table</span><span class="p">)</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[dim]JSON results → </span><span class="si">{</span><span class="n">run_dir</span><span class="si">}</span><span class="s2">[/dim]&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">save_videos</span><span class="p">:</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[dim]Videos      → </span><span class="si">{</span><span class="n">run_dir</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s1">&#39;videos&#39;</span><span class="si">}</span><span class="s2">[/dim]&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Run from the repository root:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># One-task smoke-test, one episode, CPU backend</span>
+<span class="n">uv</span> <span class="n">run</span> <span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">eval_demo</span><span class="o">.</span><span class="n">py</span> \
+    <span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">episodes</span> <span class="mi">1</span> <span class="o">--</span><span class="n">sim</span><span class="o">-</span><span class="n">backend</span> <span class="n">cpu</span> \
+    <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="n">eval_results</span><span class="o">/</span><span class="n">dummy</span>
+
+<span class="c1"># Canonical Short-split run</span>
+<span class="n">uv</span> <span class="n">run</span> <span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">eval_demo</span><span class="o">.</span><span class="n">py</span> \
+    <span class="o">--</span><span class="n">split</span> <span class="n">short</span> \
+    <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="n">results</span><span class="o">/</span><span class="n">my_model</span>
+
+<span class="c1"># With per-episode rollout videos</span>
+<span class="n">uv</span> <span class="n">run</span> <span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">eval_demo</span><span class="o">.</span><span class="n">py</span> \
+    <span class="o">--</span><span class="n">split</span> <span class="n">short</span> \
+    <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">videos</span> \
+    <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">dir</span> <span class="n">results</span><span class="o">/</span><span class="n">my_model</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="benchmarking.html"><span class="doc">Benchmarking</span></a> for the full CLI reference and Python API.</p>
+</section>
+<section id="what-to-report-in-papers">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">What to Report in Papers</a><a class="headerlink" href="#what-to-report-in-papers" title="Link to this heading">#</a></h2>
+<p>Reproducibility checklist:</p>
+<ul class="simple">
+<li><p>[ ] Benchmark git commit.</p></li>
+<li><p>[ ] Split evaluated (Short / Medium / Long, or explicit subset + label).</p></li>
+<li><p>[ ] Start seed and episodes per task (default: <code class="docutils literal notranslate"><span class="pre">4242424242</span></code> × 50).</p></li>
+<li><p>[ ] GPU model and count.</p></li>
+<li><p>[ ] Training dataset (Hugging Face repo).</p></li>
+<li><p>[ ] Training compute (GPU hours or gradient steps) and config (LoRA rank, etc.).</p></li>
+<li><p>[ ] Action chunk size <code class="docutils literal notranslate"><span class="pre">K</span></code>.</p></li>
+<li><p>[ ] <strong>Required</strong>: per-split SR, full per-task SR table, per-memory-type SR.</p></li>
+<li><p>[ ] Mean return per task (optional debug metric).</p></li>
+<li><p>[ ] Whether <code class="docutils literal notranslate"><span class="pre">oracle_info</span></code> or <code class="docutils literal notranslate"><span class="pre">task_cue</span></code> were passed to the policy.
+Both are RL-side fields (<code class="docutils literal notranslate"><span class="pre">task_cue</span></code> only exists for <em>Rotate*</em> and is
+already encoded in the language instruction); reading either disqualifies
+the run from the canonical leaderboard.</p></li>
+</ul>
+</section>
+<section id="cross-split-and-partial-evaluation">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Cross-Split and Partial Evaluation</a><a class="headerlink" href="#cross-split-and-partial-evaluation" title="Link to this heading">#</a></h2>
+<p>Evaluating on a different split than the training split, or on a custom subset,
+is allowed but must be reported separately with an explicit label such as
+<em>“trained on Short, evaluated on Medium”</em>.  Do not mix such results into the
+same SR table as canonical runs.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="benchmarking.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Benchmarking</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="observation_space.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Observation and Action Space</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-at-a-glance">Protocol at a Glance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-and-action-format">Observation and Action Format</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#action-chunking">Action chunking</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#success-once-main-metric"><code class="docutils literal notranslate"><span class="pre">success_once</span></code> (main metric)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-debug-only"><code class="docutils literal notranslate"><span class="pre">return</span></code> (debug only)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reported-sr-levels">Reported SR levels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seeding">Seeding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#num-envs"><code class="docutils literal notranslate"><span class="pre">num_envs</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapper-stack">Wrapper Stack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json-output-schema">JSON Output Schema</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-task-file-env-id-json">Per-task file <code class="docutils literal notranslate"><span class="pre">&lt;ENV_ID&gt;.json</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-file-summary-json">Summary file <code class="docutils literal notranslate"><span class="pre">summary.json</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-evaluation-script">Reference Evaluation Script</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-to-report-in-papers">What to Report in Papers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-split-and-partial-evaluation">Cross-Split and Partial Evaluation</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/evaluation_protocol.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Egor Cherepanov, Nikita Kachaev, Alexey K. Kovalev, Aleksandr I. Panov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

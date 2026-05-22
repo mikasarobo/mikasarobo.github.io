@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Core Concepts &#8212; MIKASA-Robo-VLA Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d539d744" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=1ed818bb"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'concepts';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/copy-code-buttons.js?v=a0e0a20e"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Environments &amp; Tasks" href="vla_environments/index.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MIKASA-Robo-VLA Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Core Concepts</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="core-concepts">
+<h1>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading">#</a></h1>
+<p>This page explains the key ideas behind MIKASA-Robo-VLA: what makes the tasks
+<em>memory-intensive</em>, how episodes are structured, and how the benchmark relates
+to the original RL release.</p>
+<nav class="contents local" id="on-this-page">
+<p class="topic-title">On this page</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-mikasa-robo-vla" id="id1">What Is MIKASA-Robo-VLA?</a></p></li>
+<li><p><a class="reference internal" href="#episode-structure" id="id2">Episode Structure</a></p></li>
+<li><p><a class="reference internal" href="#memory-types" id="id3">Memory Types</a></p></li>
+<li><p><a class="reference internal" href="#horizon-splits" id="id4">Horizon Splits</a></p></li>
+<li><p><a class="reference internal" href="#observation-modes-and-the-task-cue-oracle-info-fields" id="id5">Observation Modes and the task_cue / oracle_info Fields</a></p></li>
+<li><p><a class="reference internal" href="#dense-reward-functions" id="id6">Dense Reward Functions</a></p></li>
+<li><p><a class="reference internal" href="#dataset-formats" id="id7">Dataset Formats</a></p></li>
+</ul>
+</nav>
+<section id="what-is-mikasa-robo-vla">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">What Is MIKASA-Robo-VLA?</a><a class="headerlink" href="#what-is-mikasa-robo-vla" title="Link to this heading">#</a></h2>
+<p>MIKASA-Robo-VLA is a benchmark suite of 90 tabletop manipulation tasks for
+evaluating <strong>Vision-Language-Action (VLA) models</strong> under partial observability.
+In every task, the agent must retain, update, or continuously track information
+across time in order to act correctly. The required memory may involve the
+colour of a previously observed object, the order of targets in a sequence, the
+location of a hidden item after shuffling, the number of events accumulated so
+far, or other temporally distributed cues that are no longer directly observable
+at decision time.</p>
+<p>The benchmark extends the original <strong>MIKASA-Robo</strong> RL release
+(<a class="reference external" href="https://arxiv.org/abs/2502.10550">ICLR 2026</a>) in many ways:</p>
+<ul class="simple">
+<li><p><strong>Task count</strong> grows from 32 to <strong>90 tasks</strong>, covering a wider range of
+memory types (10 vs 4), horizon lengths (25 – 2160 steps), and difficulty
+levels.</p></li>
+<li><p><strong>New memory types</strong>: Temporal, Prospective, Tracking, Checklist, Negative,
+and Procedural — not present in the original RL release.</p></li>
+<li><p><strong>Language instructions</strong>: every task ships with a natural-language
+<code class="docutils literal notranslate"><span class="pre">LANGUAGE_INSTRUCTION</span></code>, enabling VLA models to condition on text.</p></li>
+<li><p><strong>Calibrated dense rewards</strong>: all environments in <code class="docutils literal notranslate"><span class="pre">mikasa_robo_suite/vla/</span></code>
+have carefully tuned dense and normalised-dense reward functions, making them
+suitable not only for offline VLA evaluation but also for online RL training
+and reward-signal research.</p></li>
+<li><p><strong>Published datasets</strong>: 22,500 trajectories (&gt;6 M timesteps) in RLDS and
+LeRobotDataset v3 formats on Hugging Face, ready for imitation learning
+without any further conversion.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The earlier RL benchmark is available from the
+<a class="reference external" href="https://github.com/CognitiveAISystems/MIKASA-Robo/tree/mikasa-robo-rl">mikasa-robo-rl branch</a>.
+Its implementation lives under <code class="docutils literal notranslate"><span class="pre">mikasa_robo_suite/rl/</span></code> and is kept for
+backwards compatibility.  All active development and new environments target
+<code class="docutils literal notranslate"><span class="pre">mikasa_robo_suite/vla/</span></code>.</p>
+</div>
+</section>
+<section id="episode-structure">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Episode Structure</a><a class="headerlink" href="#episode-structure" title="Link to this heading">#</a></h2>
+<p>Most tasks in the benchmark follow a <strong>three-phase structure</strong>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌──────────────┬──────────────────────┬──────────────────┐
+│  Cue phase   │   Memory phase       │  Action phase    │
+│  (observe)   │   (retain / track)   │  (act on memory) │
+└──────────────┴──────────────────────┴──────────────────┘
+</pre></div>
+</div>
+<dl class="simple">
+<dt><strong>Cue phase</strong></dt><dd><p>The environment presents the information the agent must remember — a
+coloured light, a sequence of objects, a count of blinks.  The agent
+typically executes a no-op action during this phase.</p>
+</dd>
+<dt><strong>Memory phase</strong></dt><dd><p>The cue disappears or the scene changes.  The agent must <em>retain</em> the
+relevant information internally.  This is the phase that separates
+memory-capable agents from reactive ones.</p>
+</dd>
+<dt><strong>Action phase</strong></dt><dd><p>The agent uses the memorised information to complete the task —
+touching the correct cup, pressing the right button, returning an object
+to its original position.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all tasks follow this exact three-phase layout.  Some tasks require
+<em>continuous</em> memory or tracking across the entire episode:</p>
+<ul class="simple">
+<li><p><strong>Tracking tasks</strong> (<em>ShellGameShuffle</em>): the agent must maintain an
+up-to-date estimate of a hidden object’s location as objects are
+shuffled throughout the episode.</p></li>
+<li><p><strong>Procedural tasks</strong> (<em>TraceShape</em>, <em>TraceShapeSeq</em>): the agent must
+recall a shape or sequence and re-execute it step-by-step with fine
+motor control.</p></li>
+<li><p><strong>Prospective tasks</strong> (<em>GatherAndRecall</em>): the agent observes a future
+goal, completes an intermediate task, then returns to fulfil the
+original intention.</p></li>
+<li><p><strong>Temporal tasks</strong> (<em>BlinkCountButtonPress</em>): information accumulates
+incrementally over time — the agent must integrate observations
+across steps rather than memorise a single cue.</p></li>
+</ul>
+</div>
+<p>The length of each phase, and therefore the horizon split of the task, is set
+by class-level constants in the environment implementation.</p>
+</section>
+<section id="memory-types">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Memory Types</a><a class="headerlink" href="#memory-types" title="Link to this heading">#</a></h2>
+<p>Tasks are grouped by the type of memory they exercise.  The full per-task
+breakdown is in <code class="docutils literal notranslate"><span class="pre">mikasa_robo_vla_envs.csv</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 12.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Memory Type</p></th>
+<th class="head"><p># Tasks</p></th>
+<th class="head"><p>What the agent must remember</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Object</strong></p></td>
+<td><p>18</p></td>
+<td><p>Identity, colour, or shape of a specific object shown during the
+cue phase (e.g. <em>RememberColor</em>, <em>FindImposter</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Spatial</strong></p></td>
+<td><p>14</p></td>
+<td><p>Location of an object that is then hidden from view
+(e.g. <em>ShellGameTouch</em>, <em>ShellGamePush</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Capacity</strong></p></td>
+<td><p>12</p></td>
+<td><p>An unordered set of items or a count (e.g. <em>BunchOfColors</em>,
+<em>BatteriesChecker</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Temporal</strong></p></td>
+<td><p>12</p></td>
+<td><p>A signal that accumulates over time, such as a blink count or a
+timed cue (e.g. <em>BlinkCountButtonPress</em>, <em>TimedTransfer</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Negative</strong></p></td>
+<td><p>9</p></td>
+<td><p>What the agent must <em>not</em> do — identify the odd-one-out
+(e.g. <em>FindImposterColor</em>, <em>FindImposterShape</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sequential</strong></p></td>
+<td><p>6</p></td>
+<td><p>An ordered sequence of targets (e.g. <em>SeqOfColors</em>,
+<em>ChainOfColors</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Procedural</strong></p></td>
+<td><p>6</p></td>
+<td><p>A motor procedure that must be recalled and re-executed
+(e.g. <em>TraceShape</em>, <em>TraceShapeSeq</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Prospective</strong></p></td>
+<td><p>5</p></td>
+<td><p>A future intention — the agent sees a goal early in the episode,
+completes an intermediate task, then returns to fulfil the goal
+(e.g. <em>GatherAndRecall</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Tracking</strong></p></td>
+<td><p>4</p></td>
+<td><p>Multiple objects that are continuously shuffled or moved while
+hidden; the agent must maintain a dynamic estimate of their
+positions throughout the episode (e.g. <em>ShellGameShuffle</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Checklist</strong></p></td>
+<td><p>4</p></td>
+<td><p>A set of conditions all of which must be satisfied in any order
+(e.g. <em>BatteriesCheckerHard</em>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="horizon-splits">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Horizon Splits</a><a class="headerlink" href="#horizon-splits" title="Link to this heading">#</a></h2>
+<p>Training a VLA on all 90 tasks simultaneously is difficult because episode
+lengths range from 25 to 2160 steps.  MIKASA-Robo-VLA therefore defines
+three <strong>horizon splits</strong> for reproducible multi-task evaluation:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 14.0%" />
+<col style="width: 22.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Split</p></th>
+<th class="head"><p>Tasks</p></th>
+<th class="head"><p>Horizon range</p></th>
+<th class="head"><p>Typical memory demand</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Short</strong></p></td>
+<td><p>38</p></td>
+<td><p>25 – 200 steps</p></td>
+<td><p>Rapid cue encoding and short-term recall.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Medium</strong></p></td>
+<td><p>30</p></td>
+<td><p>201 – 601 steps</p></td>
+<td><p>Sustained working memory over moderately long episodes.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Long</strong></p></td>
+<td><p>22</p></td>
+<td><p>602 – 2160 steps</p></td>
+<td><p>Extended memory, multi-phase reasoning, procedural recall.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>See <a class="reference internal" href="benchmarking.html"><span class="doc">Benchmarking</span></a> for the canonical evaluation protocol that uses these
+splits.</p>
+</section>
+<section id="observation-modes-and-the-task-cue-oracle-info-fields">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Observation Modes and the task_cue / oracle_info Fields</a><a class="headerlink" href="#observation-modes-and-the-task-cue-oracle-info-fields" title="Link to this heading">#</a></h2>
+<p>VLA environments expose two observation modes:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">obs_mode=&quot;state&quot;</span></code></dt><dd><p>Privileged simulator state as a flat tensor.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This mode is <strong>not</strong> used for VLA training or benchmarking.  It is
+intended solely for PPO oracle training, reward calibration, and
+generating ground-truth labels.  Always use <code class="docutils literal notranslate"><span class="pre">obs_mode=&quot;rgb&quot;</span></code> for
+VLA evaluation.</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">obs_mode=&quot;rgb&quot;</span></code></dt><dd><p>RGB images from the top-down and wrist-mounted cameras, plus 7D
+proprioception <code class="docutils literal notranslate"><span class="pre">obs[&quot;proprio&quot;]</span></code>.  This is the standard mode for VLA
+training and evaluation.  After
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>
+the proprioception vector is the <strong>absolute EEF pose plus gripper opening</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="p">[</span><span class="s2">&quot;proprio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">eef_x</span><span class="p">,</span> <span class="n">eef_y</span><span class="p">,</span> <span class="n">eef_z</span><span class="p">,</span> <span class="n">eef_roll</span><span class="p">,</span> <span class="n">eef_pitch</span><span class="p">,</span> <span class="n">eef_yaw</span><span class="p">,</span> <span class="n">gripper_opening</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and the action accepted by <code class="docutils literal notranslate"><span class="pre">env.step(action)</span></code> is a <strong>relative delta plus
+gripper position command</strong> (all values in <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">action</span> <span class="o">=</span> <span class="p">[</span><span class="n">delta_eef_x</span><span class="p">,</span> <span class="n">delta_eef_y</span><span class="p">,</span> <span class="n">delta_eef_z</span><span class="p">,</span>
+          <span class="n">delta_eef_roll</span><span class="p">,</span> <span class="n">delta_eef_pitch</span><span class="p">,</span> <span class="n">delta_eef_yaw</span><span class="p">,</span>
+          <span class="n">gripper_command</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="observation_space.html"><span class="doc">Observation and Action Space</span></a> for the complete field-by-field reference with
+units and ranges.</p>
+</dd>
+</dl>
+<p>Both modes are extended by
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper" title="mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">StateOnlyTensorToDictWrapper</span></code></a>
+with two extra fields:</p>
+<ul class="simple">
+<li><p><strong>``task_cue``</strong> — a small numerical tensor exposed <em>only</em> by the
+<em>Rotate*</em> family of environments.  A single RGB frame cannot convey the
+exact target rotation angle, so RL agents trained on those tasks need
+the angle (in degrees) as an explicit observation channel.  The cue is
+consumed by the PPO oracles during dataset collection; it is <strong>not</strong>
+required by VLA policies, because the same information is embedded
+inside every task’s <code class="docutils literal notranslate"><span class="pre">language_instruction</span></code> (e.g. <em>“Rotate the peg by
+30 degrees clockwise”</em>).  For all non-Rotate tasks
+<code class="docutils literal notranslate"><span class="pre">StateOnlyTensorToDictWrapper</span></code> returns the sentinel value
+<code class="docutils literal notranslate"><span class="pre">4242424242</span></code>, and the canonical
+<a class="reference internal" href="api/wrappers.html#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>
+helper drops the key from the VLA-facing observation entirely.</p></li>
+<li><p><strong>``oracle_info``</strong> — additional privileged information for evaluation or
+debugging (e.g. ground-truth object position).  Always <code class="docutils literal notranslate"><span class="pre">4242424242</span></code> when
+not available, and stripped from the VLA-facing observation by the
+canonical wrapper.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>task_cue vs language_instruction.</strong>  <code class="docutils literal notranslate"><span class="pre">language_instruction</span></code> is a
+human-readable text string (e.g. <em>“Observe the cube’s colour, wait, then
+touch the cube of the same colour”</em>) and is the <strong>only</strong> task-conditioning
+channel a VLA model needs.  <code class="docutils literal notranslate"><span class="pre">task_cue</span></code> is a numeric encoding of the
+same information that exists solely for RL baselines on <em>Rotate*</em> —
+<em>VLA pipelines should ignore it.</em></p>
+<p>The canonical wrapped observation therefore contains only <code class="docutils literal notranslate"><span class="pre">rgb</span></code> and
+<code class="docutils literal notranslate"><span class="pre">proprio</span></code> for almost all tasks, plus <code class="docutils literal notranslate"><span class="pre">task_cue</span></code> for <em>Rotate*</em>.
+See <a class="reference internal" href="observation_space.html"><span class="doc">Observation and Action Space</span></a> for the field-by-field layout and
+<a class="reference internal" href="wrappers_cookbook.html"><span class="doc">Wrappers Cookbook</span></a> for how the chain composes.</p>
+</div>
+</section>
+<section id="dense-reward-functions">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Dense Reward Functions</a><a class="headerlink" href="#dense-reward-functions" title="Link to this heading">#</a></h2>
+<p>A key property of MIKASA-Robo-VLA is that all 90 environments include
+<strong>calibrated dense reward functions</strong>.  Unlike sparse rewards that provide
+a signal only on task completion, the dense rewards break down each task into
+interpretable sub-goals (approach, grasp, reach, release, …) and assign
+incremental reward at each sub-step.</p>
+<p>This has two practical consequences:</p>
+<ol class="arabic simple">
+<li><p><strong>PPO oracle training</strong> converges reliably even for tasks with long
+horizons, making it possible to generate high-quality demonstration
+datasets.</p></li>
+<li><p>Researchers who want to train RL agents online — rather than fine-tuning a
+VLA offline — can do so with the same environments without any reward
+engineering.</p></li>
+</ol>
+<p>Use <code class="docutils literal notranslate"><span class="pre">reward_mode=&quot;normalized_dense&quot;</span></code> (values in [0, 1]) for RL training, or
+<code class="docutils literal notranslate"><span class="pre">reward_mode=&quot;sparse&quot;</span></code> if you only care about task success during evaluation.
+See <a class="reference internal" href="observation_space.html"><span class="doc">Observation and Action Space</span></a> for the full reward-mode reference.</p>
+</section>
+<section id="dataset-formats">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Dataset Formats</a><a class="headerlink" href="#dataset-formats" title="Link to this heading">#</a></h2>
+<p>Trajectories collected with the PPO oracle or motion-planning scripts are
+stored in three formats (in order of the collection pipeline):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NPZ (raw episodes)
+  └─► RLDS / TensorFlow Datasets (episodic, Open-X style)
+        └─► LeRobotDataset v3 (Parquet + MP4, modern imitation learning)
+</pre></div>
+</div>
+<p>NPZ is the internal collection format.  RLDS and LeRobotDataset v3 are the
+formats published on Hugging Face and recommended for VLA training.
+See <a class="reference internal" href="datasets.html"><span class="doc">Datasets</span></a> for download links and conversion commands.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="quickstart.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quick Start</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vla_environments/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Environments &amp; Tasks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mikasa-robo-vla">What Is MIKASA-Robo-VLA?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#episode-structure">Episode Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-types">Memory Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horizon-splits">Horizon Splits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observation-modes-and-the-task-cue-oracle-info-fields">Observation Modes and the task_cue / oracle_info Fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-reward-functions">Dense Reward Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-formats">Dataset Formats</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/concepts.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Egor Cherepanov, Nikita Kachaev, Alexey K. Kovalev, Aleksandr I. Panov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

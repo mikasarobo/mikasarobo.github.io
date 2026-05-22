@@ -1,0 +1,1350 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Wrappers API &#8212; MIKASA-Robo-VLA Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d539d744" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=1ed818bb"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/wrappers';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/copy-code-buttons.js?v=a0e0a20e"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dataset Collectors API" href="collectors.html" />
+    <link rel="prev" title="Wrappers Cookbook" href="../wrappers_cookbook.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MIKASA-Robo-VLA Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar"><svg class="pst-icon svg-inline--fa" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Wrappers API</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="wrappers-api">
+<h1>Wrappers API<a class="headerlink" href="#wrappers-api" title="Link to this heading">#</a></h1>
+<p>For usage patterns and composition guidance, see the <a class="reference internal" href="../wrappers_cookbook.html"><span class="doc">Wrappers Cookbook</span></a>.
+This page is a full API reference generated from the source docstrings.</p>
+<p>The 19 wrappers are organised into four groups, plus a one-call helper
+that wires them up for any of the 90 MIKASA-Robo-VLA tasks:</p>
+<ul class="simple">
+<li><p><strong>One-call helper</strong> — picks the correct chain for every task.</p></li>
+<li><p><strong>Core</strong> — always required: dict conversion and proprioception remapping.</p></li>
+<li><p><strong>Action-shaping</strong> — control robot behaviour during specific episode phases.</p></li>
+<li><p><strong>Task-specific info</strong> — inject ground-truth fields into the <code class="docutils literal notranslate"><span class="pre">info</span></code> dict.</p></li>
+<li><p><strong>Render / debug</strong> — overlay diagnostic information on rendered frames.</p></li>
+</ul>
+<section id="one-call-helper">
+<h2>One-Call Helper<a class="headerlink" href="#one-call-helper" title="Link to this heading">#</a></h2>
+<p>For every of the 90 MIKASA-Robo-VLA env IDs, use
+<a class="reference internal" href="#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a>
+immediately after <code class="docutils literal notranslate"><span class="pre">gym.make</span></code>. It applies the canonical wrapper chain that
+matches the dataset-collection pipeline. The individual wrapper classes below
+remain available for users that need to compose chains by hand.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers">
+<span class="sig-name descname"><span class="pre">apply_mikasa_vla_wrappers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://gymnasium.farama.org/api/env/#gymnasium.Env" title="(in Gymnasium)"><span class="pre">Env</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_overlays</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://gymnasium.farama.org/api/env/#gymnasium.Env" title="(in Gymnasium)"><span class="pre">Env</span></a></span></span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/apply_wrappers.html#apply_mikasa_vla_wrappers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers" title="Link to this definition">#</a></dt>
+<dd><p>Apply the configured MIKASA-Robo-VLA wrapper stack.</p>
+<p>Call this immediately after <code class="docutils literal notranslate"><span class="pre">gym.make</span></code>. Add support for another env by
+adding its <code class="xref py py-class docutils literal notranslate"><span class="pre">VLAWrapperConfig</span></code> to <code class="xref py py-data docutils literal notranslate"><span class="pre">VLA_WRAPPER_CONFIGS</span></code>.</p>
+<p>The returned env exposes <code class="docutils literal notranslate"><span class="pre">env.max_episode_steps</span></code> with the configured
+ManiSkill horizon, including a <code class="docutils literal notranslate"><span class="pre">gym.make(...,</span> <span class="pre">max_episode_steps=...)</span></code>
+override.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.apply_wrappers.MIKASA_VLA_ENV_IDS">
+<span class="sig-name descname"><span class="pre">MIKASA_VLA_ENV_IDS</span></span><a class="headerlink" href="#mikasa_robo_suite.vla.utils.apply_wrappers.MIKASA_VLA_ENV_IDS" title="Link to this definition">#</a></dt>
+<dd><p>Built-in immutable sequence.</p>
+<p>If no argument is given, the constructor returns an empty tuple.
+If iterable is specified the tuple is initialized from iterable’s items.</p>
+<p>If the argument is a tuple, the return value is the same object.</p>
+</dd></dl>
+
+</section>
+<section id="core-wrappers">
+<h2>Core Wrappers<a class="headerlink" href="#core-wrappers" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StateOnlyTensorToDictWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#StateOnlyTensorToDictWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/observation_wrappers/#gymnasium.ObservationWrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObservationWrapper</span></code></a></p>
+<p>Wrapper that converts tensor observation to a dictionary with ‘state’ key.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper.observation">
+<span class="sig-name descname"><span class="pre">observation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#StateOnlyTensorToDictWrapper.observation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper.observation" title="Link to this definition">#</a></dt>
+<dd><p>Returns a modified observation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observation</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> observation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified observation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ConvertJointsToEEFXyzRpyGripperWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qpos_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gripper_finger_dims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#ConvertJointsToEEFXyzRpyGripperWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/observation_wrappers/#gymnasium.ObservationWrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObservationWrapper</span></code></a></p>
+<p>Convert flattened joint-state input into observation[‘proprio’].</p>
+<p>The VLA-facing proprio vector is xyz(3) + rpy(3) + gripper(1).</p>
+<p>Expected source layout for flattened joints is:
+[tcp_pose(7), qpos(n), qvel(n), …], where tcp_pose is [x, y, z, qw, qx, qy, qz].</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper.observation">
+<span class="sig-name descname"><span class="pre">observation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#ConvertJointsToEEFXyzRpyGripperWrapper.observation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper.observation" title="Link to this definition">#</a></dt>
+<dd><p>Returns a modified observation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>observation</strong> – The <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> observation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified observation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="action-shaping-wrappers">
+<h2>Action-Shaping Wrappers<a class="headerlink" href="#action-shaping-wrappers" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InitialZeroActionWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_initial_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#InitialZeroActionWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/action_wrappers/#gymnasium.ActionWrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionWrapper</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#InitialZeroActionWrapper.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.action" title="Link to this definition">#</a></dt>
+<dd><p>Modifies action before sending it to the environment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#InitialZeroActionWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Resets the step counter</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#InitialZeroActionWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Runs the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> <code class="xref py py-meth docutils literal notranslate"><span class="pre">env.step()</span></code> using the modified <code class="docutils literal notranslate"><span class="pre">action</span></code> from <code class="xref py py-meth docutils literal notranslate"><span class="pre">self.action()</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CurriculumPhaseNoopActionWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CurriculumPhaseNoopActionWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/action_wrappers/#gymnasium.ActionWrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActionWrapper</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CurriculumPhaseNoopActionWrapper.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.action" title="Link to this definition">#</a></dt>
+<dd><p>Returns a modified action before <code class="xref py py-meth docutils literal notranslate"><span class="pre">env.step()</span></code> is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> – The original <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> actions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified actions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CurriculumPhaseNoopActionWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CurriculumPhaseNoopActionWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Runs the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> <code class="xref py py-meth docutils literal notranslate"><span class="pre">env.step()</span></code> using the modified <code class="docutils literal notranslate"><span class="pre">action</span></code> from <code class="xref py py-meth docutils literal notranslate"><span class="pre">self.action()</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CurriculumPhaseNoopActionWrapperPdJointPos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CurriculumPhaseNoopActionWrapperPdJointPos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper" title="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapper</span></code></a></p>
+<p>Curriculum-phase noop wrapper for envs running in <cite>pd_joint_pos</cite> control mode.</p>
+<p>Plain <cite>CurriculumPhaseNoopActionWrapper</cite> sends action = 0, which in
+<cite>pd_joint_pos</cite> would command the robot to move toward qpos = [0, …, 0]
+instead of holding the current pose. This subclass overrides the noop
+action to be the robot’s current arm qpos plus a normalized gripper
+command — i.e., “stay where you are”.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_HIGH">
+<span class="sig-name descname"><span class="pre">GRIPPER_HIGH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.04</span></em><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_HIGH" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_LOW">
+<span class="sig-name descname"><span class="pre">GRIPPER_LOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-0.01</span></em><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_LOW" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CurriculumPhaseNoopActionWrapperPdJointPos.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.action" title="Link to this definition">#</a></dt>
+<dd><p>Returns a modified action before <code class="xref py py-meth docutils literal notranslate"><span class="pre">env.step()</span></code> is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> – The original <code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code> actions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The modified actions</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CameraShutdownWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_initial_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">19</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CameraShutdownWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>Wrapper that zeros out all camera observations</p>
+<p>if n_initial_steps = 4 then t in [0, 4] (5 steps) action is zero
+if n_initial_steps = 9 then t in [0, 9] (10 steps) action is zero
+if n_initial_steps = 19 then t in [0, 19] (20 steps) action is zero</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CameraShutdownWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CameraShutdownWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#CameraShutdownWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="task-specific-info-wrappers">
+<h2>Task-Specific Info Wrappers<a class="headerlink" href="#task-specific-info-wrappers" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RememberColorInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberColorInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>Render the target color as a color swatch for color-memory tasks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberColorInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberColorInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberColorInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RememberShapeInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>Render target shape for remember-shape tasks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RememberShapeAndColorInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeAndColorInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>Render target shape+color text for remember-shape-and-color tasks.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.decode_shape">
+<span class="sig-name descname"><span class="pre">decode_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeAndColorInfoWrapper.decode_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.decode_shape" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeAndColorInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeAndColorInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RememberShapeAndColorInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MemoryCapacityInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#MemoryCapacityInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#MemoryCapacityInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#MemoryCapacityInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#MemoryCapacityInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="render-debug-wrappers">
+<h2>Render / Debug Wrappers<a class="headerlink" href="#render-debug-wrappers" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RenderStepInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderStepInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>A wrapper that renders the current step count and target cup on the screen.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderStepInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderStepInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderStepInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RenderRewardInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderRewardInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>A wrapper that renders the current reward on the screen.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderRewardInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderRewardInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderRewardInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RenderPressProgressInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderPressProgressInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<dl class="simple">
+<dt>Renders button press progress:</dt><dd><ul class="simple">
+<li><p>raw presses (instant physical presses)</p></li>
+<li><p>confirmed presses (completed press cycles)</p></li>
+<li><p>target presses</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderPressProgressInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderPressProgressInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderPressProgressInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RenderWorkingBatteriesInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderWorkingBatteriesInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>Renders progress of discovered working batteries: found / target.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderWorkingBatteriesInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderWorkingBatteriesInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderWorkingBatteriesInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ShellGameRenderCupInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#ShellGameRenderCupInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>A wrapper that renders the current step count and target cup on the screen.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#ShellGameRenderCupInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#ShellGameRenderCupInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#ShellGameRenderCupInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RotateRenderAngleInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RotateRenderAngleInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>A wrapper that renders the current step count and target cup on the screen.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RotateRenderAngleInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RotateRenderAngleInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RotateRenderAngleInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RenderTraceShapeDebugWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimap_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">160</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimap_top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">130</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTraceShapeDebugWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>Debug overlay for TraceShape and TraceShapeSeq tasks.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.SHAPE_NAMES">
+<span class="sig-name descname"><span class="pre">SHAPE_NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{0:</span> <span class="pre">'Circle',</span> <span class="pre">1:</span> <span class="pre">'Square',</span> <span class="pre">2:</span> <span class="pre">'Triangle'}</span></em><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.SHAPE_NAMES" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTraceShapeDebugWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTraceShapeDebugWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTraceShapeDebugWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RenderTimedTransferInfoWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTimedTransferInfoWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>Renders a countdown and timing info for TimedTransfer tasks.</p>
+<dl class="simple">
+<dt>Displayed on each frame:</dt><dd><ul class="simple">
+<li><p>Steps remaining until the target placement moment</p></li>
+<li><p>Current phase (WAIT / COUNTING / WINDOW / LATE)</p></li>
+<li><p>Window bounds and cube-on-red status</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTimedTransferInfoWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTimedTransferInfoWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#RenderTimedTransferInfoWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DebugRewardWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#DebugRewardWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://gymnasium.farama.org/api/wrappers/#gymnasium.Wrapper" title="(in Gymnasium)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wrapper</span></code></a></p>
+<p>A wrapper that renders the current step count and target cup on the screen.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#DebugRewardWrapper.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.render" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.render" title="mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">render()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#DebugRewardWrapper.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.reset" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.reset" title="mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mikasa_robo_suite/vla/utils/wrappers.html#DebugRewardWrapper.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.step" title="Link to this definition">#</a></dt>
+<dd><p>Uses the <a class="reference internal" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.step" title="mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.step"><code class="xref py py-meth docutils literal notranslate"><span class="pre">step()</span></code></a> of the <code class="xref py py-attr docutils literal notranslate"><span class="pre">env</span></code> that can be overwritten to change the returned data.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../wrappers_cookbook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Wrappers Cookbook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="collectors.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dataset Collectors API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-call-helper">One-Call Helper</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.apply_wrappers.apply_mikasa_vla_wrappers"><code class="docutils literal notranslate"><span class="pre">apply_mikasa_vla_wrappers()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.apply_wrappers.MIKASA_VLA_ENV_IDS"><code class="docutils literal notranslate"><span class="pre">MIKASA_VLA_ENV_IDS</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-wrappers">Core Wrappers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper"><code class="docutils literal notranslate"><span class="pre">StateOnlyTensorToDictWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.StateOnlyTensorToDictWrapper.observation"><code class="docutils literal notranslate"><span class="pre">StateOnlyTensorToDictWrapper.observation()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper"><code class="docutils literal notranslate"><span class="pre">ConvertJointsToEEFXyzRpyGripperWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.ConvertJointsToEEFXyzRpyGripperWrapper.observation"><code class="docutils literal notranslate"><span class="pre">ConvertJointsToEEFXyzRpyGripperWrapper.observation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#action-shaping-wrappers">Action-Shaping Wrappers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper"><code class="docutils literal notranslate"><span class="pre">InitialZeroActionWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.action"><code class="docutils literal notranslate"><span class="pre">InitialZeroActionWrapper.action()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.reset"><code class="docutils literal notranslate"><span class="pre">InitialZeroActionWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.InitialZeroActionWrapper.step"><code class="docutils literal notranslate"><span class="pre">InitialZeroActionWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.action"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapper.action()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.reset"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapper.step"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapperPdJointPos</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_HIGH"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_HIGH</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_LOW"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapperPdJointPos.GRIPPER_LOW</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CurriculumPhaseNoopActionWrapperPdJointPos.action"><code class="docutils literal notranslate"><span class="pre">CurriculumPhaseNoopActionWrapperPdJointPos.action()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper"><code class="docutils literal notranslate"><span class="pre">CameraShutdownWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.render"><code class="docutils literal notranslate"><span class="pre">CameraShutdownWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.reset"><code class="docutils literal notranslate"><span class="pre">CameraShutdownWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.CameraShutdownWrapper.step"><code class="docutils literal notranslate"><span class="pre">CameraShutdownWrapper.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-specific-info-wrappers">Task-Specific Info Wrappers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RememberColorInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RememberColorInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RememberColorInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberColorInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RememberColorInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RememberShapeInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RememberShapeInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RememberShapeInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RememberShapeInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RememberShapeAndColorInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.decode_shape"><code class="docutils literal notranslate"><span class="pre">RememberShapeAndColorInfoWrapper.decode_shape()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RememberShapeAndColorInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RememberShapeAndColorInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RememberShapeAndColorInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RememberShapeAndColorInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper"><code class="docutils literal notranslate"><span class="pre">MemoryCapacityInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">MemoryCapacityInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">MemoryCapacityInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.MemoryCapacityInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">MemoryCapacityInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#render-debug-wrappers">Render / Debug Wrappers</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RenderStepInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RenderStepInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RenderStepInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderStepInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RenderStepInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RenderRewardInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RenderRewardInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RenderRewardInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderRewardInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RenderRewardInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RenderPressProgressInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RenderPressProgressInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RenderPressProgressInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderPressProgressInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RenderPressProgressInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RenderWorkingBatteriesInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RenderWorkingBatteriesInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RenderWorkingBatteriesInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderWorkingBatteriesInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RenderWorkingBatteriesInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper"><code class="docutils literal notranslate"><span class="pre">ShellGameRenderCupInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">ShellGameRenderCupInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">ShellGameRenderCupInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.ShellGameRenderCupInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">ShellGameRenderCupInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RotateRenderAngleInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RotateRenderAngleInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RotateRenderAngleInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RotateRenderAngleInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RotateRenderAngleInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper"><code class="docutils literal notranslate"><span class="pre">RenderTraceShapeDebugWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.SHAPE_NAMES"><code class="docutils literal notranslate"><span class="pre">RenderTraceShapeDebugWrapper.SHAPE_NAMES</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.render"><code class="docutils literal notranslate"><span class="pre">RenderTraceShapeDebugWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RenderTraceShapeDebugWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTraceShapeDebugWrapper.step"><code class="docutils literal notranslate"><span class="pre">RenderTraceShapeDebugWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper"><code class="docutils literal notranslate"><span class="pre">RenderTimedTransferInfoWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.render"><code class="docutils literal notranslate"><span class="pre">RenderTimedTransferInfoWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.reset"><code class="docutils literal notranslate"><span class="pre">RenderTimedTransferInfoWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.RenderTimedTransferInfoWrapper.step"><code class="docutils literal notranslate"><span class="pre">RenderTimedTransferInfoWrapper.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper"><code class="docutils literal notranslate"><span class="pre">DebugRewardWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.render"><code class="docutils literal notranslate"><span class="pre">DebugRewardWrapper.render()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.reset"><code class="docutils literal notranslate"><span class="pre">DebugRewardWrapper.reset()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mikasa_robo_suite.vla.utils.wrappers.DebugRewardWrapper.step"><code class="docutils literal notranslate"><span class="pre">DebugRewardWrapper.step()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/wrappers.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Egor Cherepanov, Nikita Kachaev, Alexey K. Kovalev, Aleksandr I. Panov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

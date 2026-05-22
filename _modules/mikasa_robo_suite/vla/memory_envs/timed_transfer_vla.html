@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mikasa_robo_suite.vla.memory_envs.timed_transfer_vla &#8212; MIKASA-Robo-VLA Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=0790524f97105ba85085" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=d539d744" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=0790524f97105ba85085"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085" />
+
+    <script src="../../../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=1ed818bb"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/mikasa_robo_suite/vla/memory_envs/timed_transfer_vla';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../../_static/copy-code-buttons.js?v=a0e0a20e"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MIKASA-Robo-VLA Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Quick Start
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../concepts.html">
+    Core Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../vla_environments/index.html">
+    Environments & Tasks
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../benchmarking.html">
+    Benchmarking
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../evaluation_protocol.html">
+    Evaluation Protocol
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../observation_space.html">
+    Observation and Action Space
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../datasets.html">
+    Datasets
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../wrappers_cookbook.html">
+    Wrappers Cookbook
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/wrappers.html">
+    Wrappers API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/collectors.html">
+    Dataset Collectors API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/envs.html">
+    Environments API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../faq.html">
+    FAQ and Troubleshooting
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/CognitiveAISystems/MIKASA-Robo" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">mikasa_robo_suite.vla.memory_envs.timed_transfer_vla</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for mikasa_robo_suite.vla.memory_envs.timed_transfer_vla</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Timed-transfer tasks for the VLA memory benchmark.</span>
+
+<span class="sd">The agent must wait a precise number of steps after a visual signal,</span>
+<span class="sd">then transfer a cube from one disc to another.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sapien</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.agents.robots.panda.panda</span><span class="w"> </span><span class="kn">import</span> <span class="n">Panda</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.agents.robots.panda.panda_wristcam</span><span class="w"> </span><span class="kn">import</span> <span class="n">PandaWristCam</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.envs.sapien_env</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseEnv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.sensors.camera</span><span class="w"> </span><span class="kn">import</span> <span class="n">CameraConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">sapien_utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.building.actors.common</span><span class="w"> </span><span class="kn">import</span> <span class="n">_build_by_type</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.registration</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_env</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.scene_builder.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">TableSceneBuilder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.structs.pose</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pose</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mani_skill.utils.structs.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Array</span><span class="p">,</span> <span class="n">GPUMemoryConfig</span><span class="p">,</span> <span class="n">SimConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transforms3d.euler</span><span class="w"> </span><span class="kn">import</span> <span class="n">euler2quat</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">mikasa_robo_suite.vla.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">shapes</span>
+
+
+<div class="viewcode-block" id="TimedTransferVLABaseEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferVLABaseEnv">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimedTransferVLABaseEnv</span><span class="p">(</span><span class="n">BaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wait a precise number of steps after a signal, then move a cube.</span>
+
+<span class="sd">    Scene: two flat discs (green and red) on the table, a blue cube resting</span>
+<span class="sd">    on the green disc, and a white lamp.</span>
+
+<span class="sd">    Episode flow:</span>
+<span class="sd">    1. The lamp is off.  The blue cube sits on the green disc.</span>
+<span class="sd">    2. After a brief random delay the lamp turns green (the signal).</span>
+<span class="sd">    3. The agent must internally count DELAY_STEPS from the signal.</span>
+<span class="sd">    4. The agent picks the blue cube and places it on the red disc.</span>
+<span class="sd">    5. The cube must be on the red disc within +/-TOLERANCE_FRAC of the target</span>
+<span class="sd">       step.  Placing too early or too late is a failure.</span>
+
+<span class="sd">    Customize difficulty by changing DELAY_STEPS.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">SUPPORTED_ROBOTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="s2">&quot;panda_wristcam&quot;</span><span class="p">]</span>
+    <span class="n">agent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Panda</span><span class="p">,</span> <span class="n">PandaWristCam</span><span class="p">]</span>
+
+    <span class="n">HEIGHT_OFFSET</span> <span class="o">=</span> <span class="mf">1000.0</span>
+    <span class="n">DELAY_STEPS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">TOLERANCE_FRAC</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="n">PRE_SIGNAL_STEPS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+    <span class="n">DISC_RADIUS</span> <span class="o">=</span> <span class="mf">0.07</span>
+    <span class="n">DISC_HALF_HEIGHT</span> <span class="o">=</span> <span class="mf">0.003</span>
+    <span class="n">CUBE_HALF_SIZE</span> <span class="o">=</span> <span class="mf">0.02</span>
+    <span class="n">GOAL_THRESH</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+    <span class="n">LAMP_BASE_RADIUS</span> <span class="o">=</span> <span class="mf">0.018</span>
+    <span class="n">LAMP_BASE_HALF_HEIGHT</span> <span class="o">=</span> <span class="mf">0.008</span>
+    <span class="n">LAMP_STEM_RADIUS</span> <span class="o">=</span> <span class="mf">0.004</span>
+    <span class="n">LAMP_STEM_HALF_HEIGHT</span> <span class="o">=</span> <span class="mf">0.020</span>
+    <span class="n">LAMP_BULB_RADIUS</span> <span class="o">=</span> <span class="mf">0.012</span>
+    <span class="n">LAMP_FORWARD_OFFSET</span> <span class="o">=</span> <span class="mf">0.22</span>
+
+    <span class="n">DISC_SEPARATION</span> <span class="o">=</span> <span class="mf">0.22</span>
+
+    <span class="n">ACTION_L2_COEF</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">ACTION_DELTA_L2_COEF</span> <span class="o">=</span> <span class="mf">0.03</span>
+    <span class="n">QVEL_L2_COEF</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="n">SUCCESS_BONUS</span> <span class="o">=</span> <span class="mf">30.0</span>
+    <span class="n">FAILURE_PENALTY</span> <span class="o">=</span> <span class="mf">25.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="n">robot_uids</span><span class="o">=</span><span class="s2">&quot;panda_wristcam&quot;</span><span class="p">,</span>
+        <span class="n">robot_init_qpos_noise</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">robot_init_qpos_noise</span> <span class="o">=</span> <span class="n">robot_init_qpos_noise</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lang_instruction</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;When the white lamp turns green, start counting steps from that exact moment. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Move the blue cube from the green disc to the red disc exactly on step </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">DELAY_STEPS</span><span class="si">}</span><span class="s2"> of that count.&quot;</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">robot_uids</span><span class="o">=</span><span class="n">robot_uids</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_sim_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">SimConfig</span><span class="p">(</span>
+            <span class="n">gpu_memory_config</span><span class="o">=</span><span class="n">GPUMemoryConfig</span><span class="p">(</span>
+                <span class="n">found_lost_pairs_capacity</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">25</span><span class="p">,</span>
+                <span class="n">max_rigid_patch_count</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">18</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_sensor_configs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pose</span> <span class="o">=</span> <span class="n">sapien_utils</span><span class="o">.</span><span class="n">look_at</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">CameraConfig</span><span class="p">(</span><span class="s2">&quot;base_camera&quot;</span><span class="p">,</span> <span class="n">pose</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_human_render_camera_configs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pose</span> <span class="o">=</span> <span class="n">sapien_utils</span><span class="o">.</span><span class="n">look_at</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">CameraConfig</span><span class="p">(</span><span class="s2">&quot;render_camera&quot;</span><span class="p">,</span> <span class="n">pose</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_load_agent</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">sapien</span><span class="o">.</span><span class="n">Pose</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.615</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_scene</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table_scene</span> <span class="o">=</span> <span class="n">TableSceneBuilder</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">robot_init_qpos_noise</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">robot_init_qpos_noise</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table_scene</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+        <span class="n">default_initial_pose</span> <span class="o">=</span> <span class="n">sapien</span><span class="o">.</span><span class="n">Pose</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">HEIGHT_OFFSET</span><span class="p">])</span>
+
+        <span class="c1"># --- Green disc (kinematic) ---</span>
+        <span class="n">green_disc_builder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">create_actor_builder</span><span class="p">()</span>
+        <span class="n">green_disc_builder</span><span class="o">.</span><span class="n">add_cylinder_collision</span><span class="p">(</span>
+            <span class="n">radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_RADIUS</span><span class="p">,</span>
+            <span class="n">half_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">green_disc_builder</span><span class="o">.</span><span class="n">add_cylinder_visual</span><span class="p">(</span>
+            <span class="n">radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_RADIUS</span><span class="p">,</span>
+            <span class="n">half_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span><span class="p">,</span>
+            <span class="n">material</span><span class="o">=</span><span class="n">sapien</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">RenderMaterial</span><span class="p">(</span>
+                <span class="n">base_color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">green_disc</span> <span class="o">=</span> <span class="n">_build_by_type</span><span class="p">(</span>
+            <span class="n">green_disc_builder</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;green_disc&quot;</span><span class="p">,</span>
+            <span class="n">body_type</span><span class="o">=</span><span class="s2">&quot;kinematic&quot;</span><span class="p">,</span>
+            <span class="n">initial_pose</span><span class="o">=</span><span class="n">default_initial_pose</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># --- Red disc (kinematic) ---</span>
+        <span class="n">red_disc_builder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">create_actor_builder</span><span class="p">()</span>
+        <span class="n">red_disc_builder</span><span class="o">.</span><span class="n">add_cylinder_collision</span><span class="p">(</span>
+            <span class="n">radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_RADIUS</span><span class="p">,</span>
+            <span class="n">half_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">red_disc_builder</span><span class="o">.</span><span class="n">add_cylinder_visual</span><span class="p">(</span>
+            <span class="n">radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_RADIUS</span><span class="p">,</span>
+            <span class="n">half_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span><span class="p">,</span>
+            <span class="n">material</span><span class="o">=</span><span class="n">sapien</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">RenderMaterial</span><span class="p">(</span>
+                <span class="n">base_color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">200</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">red_disc</span> <span class="o">=</span> <span class="n">_build_by_type</span><span class="p">(</span>
+            <span class="n">red_disc_builder</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;red_disc&quot;</span><span class="p">,</span>
+            <span class="n">body_type</span><span class="o">=</span><span class="s2">&quot;kinematic&quot;</span><span class="p">,</span>
+            <span class="n">initial_pose</span><span class="o">=</span><span class="n">default_initial_pose</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># --- Blue cube (dynamic) ---</span>
+        <span class="n">cube_hs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">CUBE_HALF_SIZE</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">cube_builder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">create_actor_builder</span><span class="p">()</span>
+        <span class="n">cube_builder</span><span class="o">.</span><span class="n">add_box_collision</span><span class="p">(</span><span class="n">half_size</span><span class="o">=</span><span class="n">cube_hs</span><span class="p">)</span>
+        <span class="n">cube_builder</span><span class="o">.</span><span class="n">add_box_visual</span><span class="p">(</span>
+            <span class="n">half_size</span><span class="o">=</span><span class="n">cube_hs</span><span class="p">,</span>
+            <span class="n">material</span><span class="o">=</span><span class="n">sapien</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">RenderMaterial</span><span class="p">(</span>
+                <span class="n">base_color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blue_cube</span> <span class="o">=</span> <span class="n">_build_by_type</span><span class="p">(</span>
+            <span class="n">cube_builder</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;blue_cube&quot;</span><span class="p">,</span>
+            <span class="n">body_type</span><span class="o">=</span><span class="s2">&quot;dynamic&quot;</span><span class="p">,</span>
+            <span class="n">initial_pose</span><span class="o">=</span><span class="n">default_initial_pose</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># --- White signal lamp (off -&gt; green) ---</span>
+        <span class="n">lamp_parts</span> <span class="o">=</span> <span class="n">shapes</span><span class="o">.</span><span class="n">build_color_switch_lamp</span><span class="p">(</span>
+            <span class="n">scene</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;signal_lamp&quot;</span><span class="p">,</span>
+            <span class="n">body_type</span><span class="o">=</span><span class="s2">&quot;kinematic&quot;</span><span class="p">,</span>
+            <span class="n">add_collision</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">initial_pose</span><span class="o">=</span><span class="n">default_initial_pose</span><span class="p">,</span>
+            <span class="n">base_radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LAMP_BASE_RADIUS</span><span class="p">,</span>
+            <span class="n">base_half_height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LAMP_BASE_HALF_HEIGHT</span><span class="p">,</span>
+            <span class="n">stem_radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LAMP_STEM_RADIUS</span><span class="p">,</span>
+            <span class="n">stem_half_height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LAMP_STEM_HALF_HEIGHT</span><span class="p">,</span>
+            <span class="n">bulb_radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LAMP_BULB_RADIUS</span><span class="p">,</span>
+            <span class="n">bulb_off_color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">220</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span>
+            <span class="n">bulb_on_color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamp_body</span> <span class="o">=</span> <span class="n">lamp_parts</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_off</span> <span class="o">=</span> <span class="n">lamp_parts</span><span class="p">[</span><span class="s2">&quot;bulb_off&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_on</span> <span class="o">=</span> <span class="n">lamp_parts</span><span class="p">[</span><span class="s2">&quot;bulb_on&quot;</span><span class="p">]</span>
+        <span class="n">shapes</span><span class="o">.</span><span class="n">_set_actor_visual_rgba</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_on</span><span class="p">,</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span>
+            <span class="n">emission_scale</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+            <span class="n">remove_textures</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># --- Per-env state tensors ---</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_envs</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">signal_step</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window_start</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window_end</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">green_disc_center</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">red_disc_center</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamp_on_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamp_off_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">too_early</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">success_flag</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disc_quat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
+            <span class="n">euler2quat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">d</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_initialize_episode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_idx</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">env_idx</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">table_scene</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">env_idx</span><span class="p">)</span>
+            <span class="n">env_idx</span> <span class="o">=</span> <span class="n">env_idx</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">task_cue</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reward_dict</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="c1"># Random center for the disc pair</span>
+            <span class="n">center_xy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.10</span> <span class="o">-</span> <span class="mf">0.15</span>
+            <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.10</span>
+
+            <span class="c1"># Green disc</span>
+            <span class="n">green_xyz</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">green_xyz</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">green_xyz</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">DISC_SEPARATION</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">green_xyz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span>
+
+            <span class="c1"># Red disc</span>
+            <span class="n">red_xyz</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">red_xyz</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">red_xyz</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">DISC_SEPARATION</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">red_xyz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span>
+
+            <span class="n">disc_q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">disc_quat</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">green_disc</span><span class="o">.</span><span class="n">set_pose</span><span class="p">(</span><span class="n">Pose</span><span class="o">.</span><span class="n">create_from_pq</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">green_xyz</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">disc_q</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">red_disc</span><span class="o">.</span><span class="n">set_pose</span><span class="p">(</span><span class="n">Pose</span><span class="o">.</span><span class="n">create_from_pq</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">red_xyz</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">disc_q</span><span class="p">))</span>
+
+            <span class="c1"># Blue cube on green disc</span>
+            <span class="n">cube_xyz</span> <span class="o">=</span> <span class="n">green_xyz</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+            <span class="n">cube_xyz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CUBE_HALF_SIZE</span>
+            <span class="n">cube_q</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">blue_cube</span><span class="o">.</span><span class="n">set_pose</span><span class="p">(</span><span class="n">Pose</span><span class="o">.</span><span class="n">create_from_pq</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">cube_xyz</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">cube_q</span><span class="p">))</span>
+
+            <span class="c1"># Lamp (behind the discs)</span>
+            <span class="n">lamp_xyz</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">lamp_xyz</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">LAMP_FORWARD_OFFSET</span>
+            <span class="n">lamp_xyz</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">center_xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">lamp_xyz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">lamp_q</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lamp_body</span><span class="o">.</span><span class="n">set_pose</span><span class="p">(</span><span class="n">Pose</span><span class="o">.</span><span class="n">create_from_pq</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">lamp_xyz</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">lamp_q</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_off</span><span class="o">.</span><span class="n">set_pose</span><span class="p">(</span><span class="n">Pose</span><span class="o">.</span><span class="n">create_from_pq</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">lamp_xyz</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">lamp_q</span><span class="p">))</span>
+
+            <span class="n">lamp_hidden_xyz</span> <span class="o">=</span> <span class="n">lamp_xyz</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+            <span class="n">lamp_hidden_xyz</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">HEIGHT_OFFSET</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_on</span><span class="o">.</span><span class="n">set_pose</span><span class="p">(</span><span class="n">Pose</span><span class="o">.</span><span class="n">create_from_pq</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">lamp_hidden_xyz</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">lamp_q</span><span class="p">))</span>
+
+            <span class="c1"># Store positions</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">green_disc_center</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">green_xyz</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">red_disc_center</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">red_xyz</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lamp_on_pos</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">lamp_xyz</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lamp_off_pos</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">lamp_hidden_xyz</span>
+
+            <span class="c1"># Signal timing</span>
+            <span class="n">pre_steps</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span>
+                <span class="n">low</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">PRE_SIGNAL_STEPS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">high</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">PRE_SIGNAL_STEPS</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">b</span><span class="p">,),</span>
+                <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">signal_step</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre_steps</span>
+            <span class="n">delay</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DELAY_STEPS</span>
+            <span class="n">tol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TOLERANCE_FRAC</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window_start</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre_steps</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">delay</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">tol</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window_end</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre_steps</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">delay</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tol</span><span class="p">))</span>
+
+            <span class="c1"># Reset state</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">too_early</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">success_flag</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">failed</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+            <span class="c1"># Oracle info: the delay value (constant per variant, but stored as tensor)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">oracle_info</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_envs</span><span class="p">,),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">DELAY_STEPS</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_uids</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;panda&quot;</span><span class="p">,</span> <span class="s2">&quot;panda_wristcam&quot;</span><span class="p">):</span>
+                <span class="n">qpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">])</span>
+                <span class="n">qpos</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_episode_rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">robot_init_qpos_noise</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">qpos</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">qpos</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">set_root_pose</span><span class="p">(</span><span class="n">sapien</span><span class="o">.</span><span class="n">Pose</span><span class="p">([</span><span class="o">-</span><span class="mf">0.615</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">robot_uids</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_prev_action&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">env_idx</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span><span class="p">[</span><span class="n">env_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="TimedTransferVLABaseEnv.evaluate">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferVLABaseEnv.evaluate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elapsed_steps</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">elapsed</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">elapsed</span> <span class="o">=</span> <span class="n">elapsed</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># --- Lamp control ---</span>
+        <span class="n">signal_on</span> <span class="o">=</span> <span class="n">elapsed</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal_step</span>
+
+        <span class="c1"># Swap lamp bulbs: off-bulb visible when no signal, on-bulb visible after signal</span>
+        <span class="n">off_pose</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_off</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+        <span class="n">off_pose</span><span class="p">[</span><span class="n">signal_on</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamp_off_pos</span><span class="p">[</span><span class="n">signal_on</span><span class="p">]</span>
+        <span class="n">off_pose</span><span class="p">[</span><span class="o">~</span><span class="n">signal_on</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamp_on_pos</span><span class="p">[</span><span class="o">~</span><span class="n">signal_on</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_off</span><span class="o">.</span><span class="n">pose</span> <span class="o">=</span> <span class="n">off_pose</span>
+
+        <span class="n">on_pose</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_on</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+        <span class="n">on_pose</span><span class="p">[</span><span class="n">signal_on</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamp_on_pos</span><span class="p">[</span><span class="n">signal_on</span><span class="p">]</span>
+        <span class="n">on_pose</span><span class="p">[</span><span class="o">~</span><span class="n">signal_on</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamp_off_pos</span><span class="p">[</span><span class="o">~</span><span class="n">signal_on</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamp_bulb_on</span><span class="o">.</span><span class="n">pose</span> <span class="o">=</span> <span class="n">on_pose</span>
+
+        <span class="c1"># --- Cube position check ---</span>
+        <span class="n">cube_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blue_cube</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span>
+        <span class="n">cube_xy</span> <span class="o">=</span> <span class="n">cube_pos</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">red_disc_xy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">red_disc_center</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">cube_to_red_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">cube_xy</span> <span class="o">-</span> <span class="n">red_disc_xy</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">cube_z</span> <span class="o">=</span> <span class="n">cube_pos</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">cube_on_red</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube_to_red_dist</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">GOAL_THRESH</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">cube_z</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">DISC_HALF_HEIGHT</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CUBE_HALF_SIZE</span> <span class="o">*</span> <span class="mi">3</span>
+        <span class="p">)</span>
+
+        <span class="c1"># --- Timing checks ---</span>
+        <span class="n">in_window</span> <span class="o">=</span> <span class="p">(</span><span class="n">elapsed</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_start</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">elapsed</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_end</span><span class="p">)</span>
+        <span class="n">before_window</span> <span class="o">=</span> <span class="n">signal_on</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">elapsed</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_start</span><span class="p">)</span>
+        <span class="n">past_window</span> <span class="o">=</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_end</span>
+
+        <span class="c1"># Too-early placement</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">too_early</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">too_early</span> <span class="o">|</span> <span class="p">(</span><span class="n">cube_on_red</span> <span class="o">&amp;</span> <span class="n">before_window</span><span class="p">)</span>
+
+        <span class="c1"># Success: cube on red disc during the window without early placement</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">success_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">success_flag</span> <span class="o">|</span> <span class="p">(</span><span class="n">cube_on_red</span> <span class="o">&amp;</span> <span class="n">in_window</span> <span class="o">&amp;</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">too_early</span><span class="p">)</span>
+
+        <span class="c1"># Failure: placed too early, or window passed without success</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">failed</span> <span class="o">|</span> <span class="bp">self</span><span class="o">.</span><span class="n">too_early</span> <span class="o">|</span> <span class="p">(</span><span class="n">past_window</span> <span class="o">&amp;</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">success_flag</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj_to_goal_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">red_disc</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">blue_cube</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span>
+        <span class="n">is_grasped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">is_grasping</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blue_cube</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">success_flag</span><span class="p">,</span>
+            <span class="s2">&quot;failed&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">failed</span><span class="p">,</span>
+            <span class="s2">&quot;too_early&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">too_early</span><span class="p">,</span>
+            <span class="s2">&quot;signal_on&quot;</span><span class="p">:</span> <span class="n">signal_on</span><span class="p">,</span>
+            <span class="s2">&quot;in_window&quot;</span><span class="p">:</span> <span class="n">in_window</span><span class="p">,</span>
+            <span class="s2">&quot;before_window&quot;</span><span class="p">:</span> <span class="n">before_window</span><span class="p">,</span>
+            <span class="s2">&quot;past_window&quot;</span><span class="p">:</span> <span class="n">past_window</span><span class="p">,</span>
+            <span class="s2">&quot;cube_on_red&quot;</span><span class="p">:</span> <span class="n">cube_on_red</span><span class="p">,</span>
+            <span class="s2">&quot;cube_to_red_dist&quot;</span><span class="p">:</span> <span class="n">cube_to_red_dist</span><span class="p">,</span>
+            <span class="s2">&quot;is_grasped&quot;</span><span class="p">:</span> <span class="n">is_grasped</span><span class="p">,</span>
+            <span class="s2">&quot;obj_to_goal_pos&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_to_goal_pos</span><span class="p">,</span>
+            <span class="s2">&quot;task_cue&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_cue</span><span class="p">,</span>
+            <span class="s2">&quot;language_instruction&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lang_instruction</span><span class="p">,</span>
+            <span class="s2">&quot;oracle_info&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">oracle_info</span><span class="p">,</span>
+            <span class="s2">&quot;reward_dict&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reward_dict</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_obs_extra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">tcp_pose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obs_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;state_dict&quot;</span><span class="p">]:</span>
+            <span class="n">obs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">green_disc_pose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">green_disc</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="p">,</span>
+                <span class="n">red_disc_pose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">red_disc</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="p">,</span>
+                <span class="n">cube_pose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">blue_cube</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">raw_pose</span><span class="p">,</span>
+                <span class="n">signal_on</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;signal_on&quot;</span><span class="p">],</span>
+                <span class="n">in_window</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;in_window&quot;</span><span class="p">],</span>
+                <span class="n">is_grasped</span><span class="o">=</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;is_grasped&quot;</span><span class="p">],</span>
+                <span class="n">oracle_info</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_info</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">obs</span>
+
+<div class="viewcode-block" id="TimedTransferVLABaseEnv.step">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferVLABaseEnv.step">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+        <span class="n">obs</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">failed</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;failed&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">terminated</span><span class="p">):</span>
+                <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">success</span><span class="p">):</span>
+                    <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span> <span class="o">|</span> <span class="n">success</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">failed</span><span class="p">):</span>
+                    <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span> <span class="o">|</span> <span class="n">failed</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">terminated</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">terminated</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">success</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">success</span><span class="p">):</span>
+                        <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="n">success</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">failed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">failed</span><span class="p">):</span>
+                        <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="n">failed</span><span class="o">.</span><span class="n">any</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">terminated</span> <span class="o">=</span> <span class="n">terminated</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="n">failed</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">obs</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">terminated</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">info</span></div>
+
+
+<div class="viewcode-block" id="TimedTransferVLABaseEnv.compute_dense_reward">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferVLABaseEnv.compute_dense_reward">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_dense_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="n">tcp_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">tcp</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span>
+        <span class="n">cube_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blue_cube</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">p</span>
+
+        <span class="n">tcp_to_cube</span> <span class="o">=</span> <span class="n">cube_pos</span> <span class="o">-</span> <span class="n">tcp_pos</span>
+        <span class="n">tcp_to_cube_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">tcp_to_cube</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">reaching_reward</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">10.0</span> <span class="o">*</span> <span class="n">tcp_to_cube_dist</span><span class="p">)</span>
+
+        <span class="n">obj_to_goal_dist</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;obj_to_goal_pos&quot;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">place_reward</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">5.0</span> <span class="o">*</span> <span class="n">obj_to_goal_dist</span><span class="p">)</span>
+
+        <span class="n">is_grasped</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;is_grasped&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+
+        <span class="n">static_reward</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">5.0</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">get_qvel</span><span class="p">()[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># Smoothness penalty</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">action</span><span class="p">):</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_prev_action&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">action</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+        <span class="n">delta_action</span> <span class="o">=</span> <span class="n">action</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span>
+        <span class="n">action_l2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">delta_action_l2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">delta_action</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">qvel_l2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">agent</span><span class="o">.</span><span class="n">robot</span><span class="o">.</span><span class="n">get_qvel</span><span class="p">()[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">smooth_penalty</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ACTION_L2_COEF</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">action_l2</span><span class="p">)</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ACTION_DELTA_L2_COEF</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">5.0</span> <span class="o">*</span> <span class="n">delta_action_l2</span><span class="p">)</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">QVEL_L2_COEF</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">qvel_l2</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">signal_on</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;signal_on&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="n">in_window</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;in_window&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="n">before_window</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;before_window&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="n">cube_on_red</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;cube_on_red&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+
+        <span class="c1"># Reward structure:</span>
+        <span class="c1">#   After signal: reaching + grasping incentives (agent can prepare)</span>
+        <span class="c1">#   In window: placement reward</span>
+        <span class="c1">#   Before window: penalty for premature placement on red disc</span>
+        <span class="c1">#   Throughout: smoothness penalty</span>
+        <span class="n">reward</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="mf">2.0</span> <span class="o">*</span> <span class="n">reaching_reward</span> <span class="o">*</span> <span class="n">signal_on</span>
+            <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">is_grasped</span> <span class="o">*</span> <span class="n">signal_on</span>
+            <span class="o">+</span> <span class="mf">20.0</span> <span class="o">*</span> <span class="n">place_reward</span> <span class="o">*</span> <span class="n">is_grasped</span> <span class="o">*</span> <span class="n">in_window</span>
+            <span class="o">+</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">cube_on_red</span> <span class="o">*</span> <span class="n">in_window</span>
+            <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">static_reward</span> <span class="o">*</span> <span class="n">cube_on_red</span> <span class="o">*</span> <span class="n">in_window</span>
+            <span class="o">-</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">cube_on_red</span> <span class="o">*</span> <span class="n">before_window</span>
+            <span class="o">-</span> <span class="n">smooth_penalty</span>
+        <span class="p">)</span>
+
+        <span class="n">reward</span> <span class="o">*=</span> <span class="n">signal_on</span>
+        <span class="n">reward</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">SUCCESS_BONUS</span>
+        <span class="n">reward</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;failed&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">FAILURE_PENALTY</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reward_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;reaching_reward&quot;</span><span class="p">:</span> <span class="n">reaching_reward</span><span class="p">,</span>
+            <span class="s2">&quot;place_reward&quot;</span><span class="p">:</span> <span class="n">place_reward</span><span class="p">,</span>
+            <span class="s2">&quot;is_grasped&quot;</span><span class="p">:</span> <span class="n">is_grasped</span><span class="p">,</span>
+            <span class="s2">&quot;tcp_to_cube_dist&quot;</span><span class="p">:</span> <span class="n">tcp_to_cube_dist</span><span class="p">,</span>
+            <span class="s2">&quot;obj_to_goal_dist&quot;</span><span class="p">:</span> <span class="n">obj_to_goal_dist</span><span class="p">,</span>
+            <span class="s2">&quot;cube_on_red&quot;</span><span class="p">:</span> <span class="n">cube_on_red</span><span class="p">,</span>
+            <span class="s2">&quot;static_reward&quot;</span><span class="p">:</span> <span class="n">static_reward</span><span class="p">,</span>
+            <span class="s2">&quot;smooth_penalty&quot;</span><span class="p">:</span> <span class="n">smooth_penalty</span><span class="p">,</span>
+            <span class="s2">&quot;action_l2&quot;</span><span class="p">:</span> <span class="n">action_l2</span><span class="p">,</span>
+            <span class="s2">&quot;delta_action_l2&quot;</span><span class="p">:</span> <span class="n">delta_action_l2</span><span class="p">,</span>
+            <span class="s2">&quot;qvel_l2&quot;</span><span class="p">:</span> <span class="n">qvel_l2</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prev_action</span> <span class="o">=</span> <span class="n">action</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">reward</span></div>
+
+
+<div class="viewcode-block" id="TimedTransferVLABaseEnv.compute_normalized_dense_reward">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferVLABaseEnv.compute_normalized_dense_reward">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_normalized_dense_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="n">info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_dense_reward</span><span class="p">(</span><span class="n">obs</span><span class="o">=</span><span class="n">obs</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span> <span class="n">info</span><span class="o">=</span><span class="n">info</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">SUCCESS_BONUS</span></div>
+</div>
+
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Standard tasks</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="TimedTransferEasyVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferEasyVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;TimedTransferEasy-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimedTransferEasyVLAEnv</span><span class="p">(</span><span class="n">TimedTransferVLABaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Delay = 10 steps, tolerance +/-5 %.&quot;&quot;&quot;</span>
+
+    <span class="n">DELAY_STEPS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span></div>
+
+
+
+<div class="viewcode-block" id="TimedTransferMediumVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferMediumVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;TimedTransferMedium-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimedTransferMediumVLAEnv</span><span class="p">(</span><span class="n">TimedTransferVLABaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Delay = 50 steps, tolerance +/-5 %.&quot;&quot;&quot;</span>
+
+    <span class="n">DELAY_STEPS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">150</span></div>
+
+
+
+<div class="viewcode-block" id="TimedTransferHardVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferHardVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;TimedTransferHard-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimedTransferHardVLAEnv</span><span class="p">(</span><span class="n">TimedTransferVLABaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Delay = 100 steps, tolerance +/-5 %.&quot;&quot;&quot;</span>
+
+    <span class="n">DELAY_STEPS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span></div>
+
+
+
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<span class="c1"># Long-horizon tasks</span>
+<span class="c1"># ---------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="TimedTransferEasyLongVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferEasyLongVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;TimedTransferEasy-Long-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimedTransferEasyLongVLAEnv</span><span class="p">(</span><span class="n">TimedTransferVLABaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Delay = 200 steps, tolerance +/-5 %.&quot;&quot;&quot;</span>
+
+    <span class="n">DELAY_STEPS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span></div>
+
+
+
+<div class="viewcode-block" id="TimedTransferMediumLongVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferMediumLongVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;TimedTransferMedium-Long-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimedTransferMediumLongVLAEnv</span><span class="p">(</span><span class="n">TimedTransferVLABaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Delay = 500 steps, tolerance +/-5 %.&quot;&quot;&quot;</span>
+
+    <span class="n">DELAY_STEPS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">500</span></div>
+
+
+
+<div class="viewcode-block" id="TimedTransferHardLongVLAEnv">
+<a class="viewcode-back" href="../../../../api/envs.html#mikasa_robo_suite.vla.memory_envs.timed_transfer_vla.TimedTransferHardLongVLAEnv">[docs]</a>
+<span class="nd">@register_env</span><span class="p">(</span><span class="s2">&quot;TimedTransferHard-Long-VLA-v0&quot;</span><span class="p">,</span> <span class="n">max_episode_steps</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimedTransferHardLongVLAEnv</span><span class="p">(</span><span class="n">TimedTransferVLABaseEnv</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Delay = 1000 steps, tolerance +/-5 %.&quot;&quot;&quot;</span>
+
+    <span class="n">DELAY_STEPS</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=0790524f97105ba85085"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=0790524f97105ba85085"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Egor Cherepanov, Nikita Kachaev, Alexey K. Kovalev, Aleksandr I. Panov.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.18.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
